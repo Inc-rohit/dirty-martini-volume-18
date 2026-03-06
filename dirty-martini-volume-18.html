@@ -13,278 +13,280 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --black:#070707;
-  --dark:#0d0d0d;
-  --card:#131313;
-  --card2:#191919;
-  --border:rgba(255,255,255,0.07);
-  --border2:rgba(255,255,255,0.12);
-  --white:#fff;
-  --muted:rgba(255,255,255,0.42);
-  --mid:rgba(255,255,255,0.65);
-  --pink:#e8358a;
-  --pink-l:#f07ab5;
-  --pink-bg:rgba(232,53,138,0.10);
-  --pink-bd:rgba(232,53,138,0.26);
+  --black:#05080f;
+  --dark:#090d16;
+  --card:#0f1520;
+  --card2:#141c2a;
+  --border:rgba(77,184,255,0.10);
+  --border2:rgba(77,184,255,0.18);
+  --white:#f0f4ff;
+  --muted:rgba(180,210,255,0.42);
+  --mid:rgba(180,210,255,0.68);
+  --accent:#4db8ff;
+  --accent-l:#7dd4fc;
+  --accent-bg:rgba(77,184,255,0.08);
+  --accent-bd:rgba(77,184,255,0.28);
+  --purple:#9b3fd4;
+  --purple-l:#c084fc;
 }
 html{scroll-behavior:smooth}
 body{background:var(--black);color:var(--white);font-family:'Inter',sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 
 /* PROGRESS */
-#prog{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--pink),#a855f7);z-index:9999;width:0%;pointer-events:none}
+#prog{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--purple));z-index:9999;width:0%;pointer-events:none}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:24px 60px;transition:padding .3s,background .3s,border-color .3s;border-bottom:1px solid transparent}
-nav.s{padding:14px 60px;background:rgba(7,7,7,.94);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom-color:var(--border)}
+nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:22px 60px;transition:padding .3s,background .3s,border-color .3s;border-bottom:1px solid transparent}
+nav.s{padding:14px 60px;background:rgba(5,8,15,.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom-color:var(--border)}
 .nb{display:flex;align-items:center;gap:14px;text-decoration:none}
-.ni{height:26px;filter:brightness(0) invert(1)}
-.nd{width:1px;height:22px;background:var(--border2)}
-.nt{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--white);line-height:1.1}
-.nt em{color:var(--pink);font-style:italic}
+.ni{height:24px;filter:brightness(0) invert(1)}
+.nd{width:1px;height:20px;background:var(--border2)}
+.nt{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:var(--white);line-height:1.1}
+.nt em{color:var(--accent);font-style:italic}
 .nv{font-size:9px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);display:block;margin-top:2px}
-.ncta{background:var(--pink);color:#fff;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:11px 24px;border-radius:100px;transition:opacity .2s,transform .2s}
-.ncta:hover{opacity:.82;transform:translateY(-1px)}
+.ncta{background:var(--accent);color:#050810;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:10px 22px;border-radius:100px;transition:opacity .2s,transform .2s}
+.ncta:hover{opacity:.85;transform:translateY(-1px)}
 
-/* SHARED */
-.wrap{max-width:1100px;margin:0 auto;padding:0 60px}
-.sec{padding:96px 0}
-.dark{background:var(--dark)}
-.black{background:var(--black)}
-
-.ey{display:inline-flex;align-items:center;gap:10px;font-size:10px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--pink);margin-bottom:16px}
-.ey::before{content:'';display:inline-block;width:18px;height:1px;background:var(--pink)}
-
-.st{font-family:'Playfair Display',serif;font-size:clamp(28px,3.8vw,48px);font-weight:700;line-height:1.08;margin-bottom:14px}
-.st em{color:var(--pink);font-style:italic}
-.sl{font-size:15px;color:var(--mid);max-width:660px;line-height:1.8;margin-bottom:48px}
-
-.btn{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;text-decoration:none;padding:13px 26px;border-radius:100px;transition:opacity .2s,transform .2s}
-.btn:hover{opacity:.84;transform:translateY(-2px)}
-.bp{background:var(--pink);color:#fff}
-.bg{background:transparent;border:1px solid var(--border2);color:var(--mid)}
-.bg:hover{border-color:rgba(255,255,255,.3);color:#fff}
-.brow{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-top:40px}
-
-.fu{opacity:0;transform:translateY(26px)}
-.divider{height:1px;background:var(--border)}
-
-/* ══ 1. HERO ══ */
+/* HERO */
 .hero{position:relative;width:100%;min-height:100vh;display:flex;align-items:flex-end;overflow:hidden}
-.hbg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;transform:scale(1.08);will-change:transform}
-.hbg-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transform:scale(1.08);will-change:transform;z-index:0;pointer-events:none}
-.hbg-video::-webkit-media-controls{display:none!important;opacity:0!important}
-.hbg-video::-webkit-media-controls-enclosure{display:none!important;opacity:0!important}
-.hbg-video::-webkit-media-controls-panel{display:none!important;opacity:0!important}
-.hbg-video::-webkit-media-controls-play-button{display:none!important;opacity:0!important}
-.hbg-video::-webkit-media-controls-start-playback-button{display:none!important;opacity:0!important}
-.hveil{position:absolute;inset:0;background:linear-gradient(165deg,rgba(7,7,7,.08) 0%,rgba(7,7,7,.45) 42%,rgba(7,7,7,.98) 100%)}
-.hbody{position:relative;z-index:2;max-width:1100px;margin:0 auto;width:100%;padding:0 60px 96px}
-.hkick{display:inline-flex;align-items:center;gap:10px;font-size:10px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--pink-l);margin-bottom:24px;opacity:0;transform:translateY(14px)}
-.hkick::before{content:'';display:inline-block;width:22px;height:1px;background:var(--pink-l)}
-.hh1{font-family:'Playfair Display',serif;font-size:clamp(56px,9vw,108px);font-weight:700;line-height:.93;letter-spacing:-.025em;margin-bottom:30px;opacity:0;transform:translateY(22px)}
-.hh1 em{color:var(--pink);font-style:italic;display:block}
-.hint{font-size:17px;font-weight:300;color:var(--mid);max-width:540px;line-height:1.78;margin-bottom:44px;opacity:0;transform:translateY(16px)}
+.hbg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;transform:scale(1.08);will-change:transform;z-index:0}
+.hbg-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transform:scale(1.08);will-change:transform;z-index:1;pointer-events:none}
+.hbg-video::-webkit-media-controls,.hbg-video::-webkit-media-controls-enclosure,.hbg-video::-webkit-media-controls-panel,.hbg-video::-webkit-media-controls-play-button,.hbg-video::-webkit-media-controls-start-playback-button{display:none!important;opacity:0!important}
+.hveil{position:absolute;inset:0;z-index:2;background:linear-gradient(170deg,rgba(5,8,15,.15) 0%,rgba(5,8,15,.5) 40%,rgba(5,8,15,.97) 100%)}
+.hbody{position:relative;z-index:3;max-width:860px;margin:0 auto;width:100%;padding:0 60px 100px}
+.hkick{display:inline-flex;align-items:center;gap:10px;font-size:10px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--accent-l);margin-bottom:20px;opacity:0;transform:translateY(14px)}
+.hkick::before{content:'';display:inline-block;width:22px;height:1px;background:var(--accent-l)}
+.hh1{font-family:'Playfair Display',serif;font-size:clamp(52px,8.5vw,104px);font-weight:700;line-height:.93;letter-spacing:-.025em;margin-bottom:28px;opacity:0;transform:translateY(22px)}
+.hh1 em{color:var(--accent);font-style:italic;display:block}
+.hint{font-size:16px;font-weight:300;color:var(--mid);max-width:520px;line-height:1.8;margin-bottom:40px;opacity:0;transform:translateY(16px)}
 .htags{display:flex;flex-wrap:wrap;gap:8px;opacity:0;transform:translateY(12px)}
-.htag{font-size:11px;font-weight:500;letter-spacing:.06em;color:var(--muted);background:rgba(255,255,255,.05);border:1px solid var(--border2);padding:6px 15px;border-radius:100px}
-.scrollhint{position:absolute;bottom:36px;right:60px;z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0}
+.htag{font-size:11px;font-weight:500;letter-spacing:.05em;color:var(--muted);background:rgba(77,184,255,.06);border:1px solid var(--border2);padding:5px 14px;border-radius:100px}
+.scrollhint{position:absolute;bottom:32px;right:60px;z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0}
 .scrollhint span{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);writing-mode:vertical-rl}
-.sline{width:1px;height:48px;background:linear-gradient(to bottom,var(--pink),transparent);animation:sl 2s ease-in-out infinite}
+.sline{width:1px;height:48px;background:linear-gradient(to bottom,var(--accent),transparent);animation:sl 2s ease-in-out infinite}
 @keyframes sl{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}100%{transform:scaleY(1);transform-origin:bottom;opacity:0}}
 
-/* ══ 2. DIRTY DETAILS ══ */
-.finding{display:grid;grid-template-columns:180px 1fr 1fr;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:14px;background:var(--card)}
-.fstat{background:var(--card2);padding:32px 24px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--border)}
-.fnum{font-family:'Playfair Display',serif;font-size:48px;font-weight:700;color:var(--pink);line-height:1;margin-bottom:6px}
+/* SHARED */
+.wrap{max-width:860px;margin:0 auto;padding:0 60px}
+.sec{padding:80px 0}
+.dark{background:var(--dark)}
+.black{background:var(--black)}
+.fu{opacity:0;transform:translateY(24px)}
+.divider{height:1px;background:var(--border)}
+
+/* SECTION HEADER — big newsletter label */
+.sec-label{display:block;font-family:'Playfair Display',serif;font-size:clamp(38px,6vw,72px);font-weight:700;line-height:1;letter-spacing:-.02em;color:var(--white);margin-bottom:6px}
+.sec-label em{color:var(--accent);font-style:italic}
+.sec-num{font-size:10px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.sec-num::before{content:'';display:inline-block;width:18px;height:1px;background:var(--accent)}
+.sec-rule{height:1px;background:linear-gradient(90deg,var(--accent-bd),transparent);margin:24px 0 40px}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;text-decoration:none;padding:12px 24px;border-radius:100px;transition:opacity .2s,transform .2s}
+.btn:hover{opacity:.84;transform:translateY(-2px)}
+.bp{background:var(--accent);color:#050810}
+.bg{background:transparent;border:1px solid var(--border2);color:var(--mid)}
+.bg:hover{border-color:rgba(77,184,255,.4);color:var(--white)}
+.brow{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-top:36px}
+
+/* ══════════════════════════════
+   2. THE DIRTY DETAILS
+══════════════════════════════ */
+.finding{border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:12px;background:var(--card)}
+.finding-top{display:grid;grid-template-columns:160px 1fr;border-bottom:1px solid var(--border)}
+.fstat{background:var(--card2);padding:28px 22px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--border)}
+.fnum{font-family:'Playfair Display',serif;font-size:44px;font-weight:700;color:var(--accent);line-height:1;margin-bottom:5px}
 .flbl{font-size:11px;color:var(--muted);line-height:1.5}
-.fbody{padding:28px;border-right:1px solid var(--border)}
-.fbody h4{font-size:13px;font-weight:700;color:var(--white);margin-bottom:8px;line-height:1.3}
-.fbody p{font-size:13px;color:var(--mid);line-height:1.68}
-.fgtm{padding:28px}
-.fgtm-lbl{font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--pink);margin-bottom:8px;display:block}
-.fgtm p{font-size:13px;color:var(--mid);line-height:1.68}
+.fbody{padding:24px 28px}
+.fbody h4{font-size:14px;font-weight:700;color:var(--white);margin-bottom:7px;line-height:1.35}
+.fbody p{font-size:13px;color:var(--mid);line-height:1.7}
+.fgtm{padding:16px 24px;background:rgba(77,184,255,.04);border-top:1px solid var(--border)}
+.fgtm-lbl{font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;display:block}
+.fgtm p{font-size:12px;color:var(--muted);line-height:1.7}
 
-.chart-row{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:stretch;margin-top:40px}
-.chart-frame{border-radius:12px;overflow:hidden;border:1px solid var(--border)}
+.chart-row{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:36px}
+.chart-frame{border-radius:10px;overflow:hidden;border:1px solid var(--border)}
 .chart-frame img{width:100%;display:block}
-.chart-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.cstat{background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:20px 18px;display:flex;flex-direction:column;gap:6px}
-.cstat-n{font-family:'Playfair Display',serif;font-size:34px;font-weight:700;color:var(--pink);line-height:1}
-.cstat p{font-size:12px;color:var(--muted);line-height:1.5}
+.chart-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cstat{background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:18px 16px;display:flex;flex-direction:column;gap:5px}
+.cstat-n{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:var(--accent);line-height:1}
+.cstat p{font-size:11px;color:var(--muted);line-height:1.5}
 
-/* ══ 3. DIVE DEEPER ══ */
-.deeper{background:var(--black);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:72px 0}
-.deeper-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
-.deeper-left h3{font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,34px);font-weight:700;line-height:1.15;margin-bottom:14px}
-.deeper-left h3 em{color:var(--pink);font-style:italic}
-.deeper-left p{font-size:15px;color:var(--mid);line-height:1.8;margin-bottom:16px}
-.theme-list{list-style:none;border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:36px}
-.ti{display:flex;gap:14px;align-items:flex-start;padding:18px 20px;background:var(--card);border-bottom:1px solid var(--border);transition:background .2s}
+/* ══════════════════════════════
+   3. DIVE DEEPER (inside Dirty Details)
+══════════════════════════════ */
+.deeper-sub{margin-top:56px;padding-top:48px;border-top:1px solid var(--border)}
+.deeper-sub-label{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;display:block}
+.deeper-inner{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-top:32px}
+.theme-list{list-style:none;border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:28px}
+.ti{display:flex;gap:12px;align-items:flex-start;padding:15px 18px;background:var(--card);border-bottom:1px solid var(--border);transition:background .2s}
 .ti:last-child{border-bottom:none}
 .ti:hover{background:var(--card2)}
-.tn{flex-shrink:0;width:22px;height:22px;border-radius:50%;border:1px solid var(--pink);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--pink);margin-top:2px}
-.ti strong{display:block;font-size:13px;font-weight:600;color:var(--white);margin-bottom:3px}
-.ti span{font-size:12px;color:var(--muted);line-height:1.58}
-.deeper-right{position:sticky;top:96px}
-.deeper-right h4{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
-.ocards{display:flex;flex-direction:column;gap:10px}
-.oc{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 20px;display:flex;align-items:center;gap:14px;transition:border-color .2s}
-.oc:hover{border-color:var(--pink-bd)}
-.on{font-family:'Playfair Display',serif;font-size:34px;font-weight:700;color:var(--pink);line-height:1;flex-shrink:0;min-width:68px}
-.oc p{font-size:13px;color:var(--mid);line-height:1.5}
+.tn{flex-shrink:0;width:20px;height:20px;border-radius:50%;border:1px solid var(--accent);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--accent);margin-top:2px}
+.ti strong{display:block;font-size:13px;font-weight:600;color:var(--white);margin-bottom:2px}
+.ti span{font-size:12px;color:var(--muted);line-height:1.55}
+.ocards{display:flex;flex-direction:column;gap:8px}
+.oc{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 18px;display:flex;align-items:center;gap:14px;transition:border-color .2s}
+.oc:hover{border-color:var(--accent-bd)}
+.on{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:var(--accent);line-height:1;flex-shrink:0;min-width:60px}
+.oc p{font-size:12px;color:var(--mid);line-height:1.5}
+.payoff-label{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;display:block}
 
 /* marquee */
-.mq{padding:20px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden;background:var(--dark)}
+.mq{padding:18px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden;background:var(--dark)}
 .mtrack{display:flex;width:max-content;animation:mq 32s linear infinite}
-.mi{display:inline-flex;align-items:center;gap:20px;padding:0 28px;font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
-.md{width:3px;height:3px;border-radius:50%;background:var(--pink);flex-shrink:0}
+.mi{display:inline-flex;align-items:center;gap:18px;padding:0 24px;font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.md{width:3px;height:3px;border-radius:50%;background:var(--accent);flex-shrink:0}
 @keyframes mq{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-/* ══ 4. JELLO SHOT ══ */
-.jello-tag{display:inline-flex;align-items:center;gap:8px;background:var(--pink);color:#fff;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:7px 16px;border-radius:100px;margin-bottom:28px}
-.jello-hero-banner{position:relative;border-radius:20px;overflow:hidden;background:#0a0a0a;border:1px solid var(--border);margin-bottom:40px;min-height:240px;display:flex;align-items:stretch}
-.jello-banner-bg{position:absolute;inset:0;background:linear-gradient(135deg,#1a0010 0%,#0d0d0d 45%,#08020e 100%);z-index:0}
-.jello-banner-glow{position:absolute;top:-60px;left:-60px;width:380px;height:380px;background:radial-gradient(circle,rgba(232,53,138,.22) 0%,transparent 65%);z-index:1;pointer-events:none}
-.jello-banner-glow2{position:absolute;bottom:-80px;right:60px;width:300px;height:300px;background:radial-gradient(circle,rgba(180,60,255,.12) 0%,transparent 65%);z-index:1;pointer-events:none}
-.jello-banner-inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;padding:44px 48px;width:100%}
-.jello-banner-text{}
-.jello-banner-eyebrow{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--pink);margin-bottom:12px;display:block}
-.jello-banner-title{font-family:'Playfair Display',serif;font-size:clamp(30px,4vw,52px);font-weight:700;line-height:1.08;color:#fff;margin-bottom:12px}
-.jello-banner-title em{color:var(--pink);font-style:italic}
-.jello-banner-sub{font-size:13px;color:var(--muted);letter-spacing:.08em;font-weight:500}
-.jello-banner-badge{background:rgba(232,53,138,.12);border:1px solid rgba(232,53,138,.28);border-radius:16px;padding:24px 28px;text-align:center;flex-shrink:0;min-width:160px}
-.jello-banner-badge .bd-num{font-family:'Playfair Display',serif;font-size:38px;font-weight:700;color:var(--pink);line-height:1;display:block;margin-bottom:4px}
-.jello-banner-badge .bd-lbl{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.jello-body{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:32px}
-.jello-copy-col p{font-size:15px;color:var(--mid);line-height:1.78;margin-bottom:14px}
-.jello-copy-col p a{color:var(--pink-l);text-decoration:underline;text-decoration-color:rgba(240,122,181,.35)}
-.jello-copy-col p strong{color:var(--white)}
-.jello-stats{display:flex;flex-direction:column;gap:12px}
-.jello-stat-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 20px;display:flex;align-items:center;gap:16px}
-.jello-stat-card .sc-num{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--pink);line-height:1;flex-shrink:0;min-width:64px}
-.jello-stat-card .sc-txt{font-size:12px;color:var(--muted);line-height:1.5}
-.jello-sessions{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:28px}
-.jello-sess-head{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
-.jello-sess-head span{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
-.jello-sess-head .sh-badge{background:var(--pink-bg);color:var(--pink-l);font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:4px 10px;border-radius:100px;border:1px solid rgba(232,53,138,.2)}
-.jello-sess-row{padding:16px 20px;border-bottom:1px solid rgba(255,255,255,.04);display:grid;grid-template-columns:90px 1fr;gap:16px;align-items:start}
-.jello-sess-row:last-child{border-bottom:none}
-.jello-sess-row.featured{background:rgba(232,53,138,.06);border-left:3px solid var(--pink)}
-.sess-time{font-size:10px;font-weight:600;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;padding-top:2px}
-.sess-info .si-stage{font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--pink);margin-bottom:4px}
-.sess-info .si-title{font-size:13px;font-weight:600;color:var(--white);line-height:1.35;margin-bottom:4px}
-.sess-info .si-speakers{font-size:11px;color:var(--muted)}
-.sess-info .si-speakers strong{color:rgba(255,255,255,.6);font-weight:500}
-.jello-meta{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:20px}
+/* ══════════════════════════════
+   4. JELLO SHOT
+══════════════════════════════ */
+.jello-pill{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#050810;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:6px 16px;border-radius:100px;margin-bottom:20px}
 
-/* ══ 5. STRAIGHT FROM THE SHAKER ══ */
-.partner-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:2px}
-.pc{background:var(--card);padding:28px 24px;transition:background .2s}
+/* Event card inside Jello Shot */
+.ev-card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:14px}
+.ev-card-head{padding:20px 24px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:16px}
+.ev-card-head h3{font-family:'Playfair Display',serif;font-size:clamp(18px,2.5vw,24px);font-weight:700;color:var(--white);line-height:1.1}
+.ev-card-head h3 em{color:var(--accent);font-style:italic}
+.ev-card-meta{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);flex-shrink:0}
+.ev-card-body{padding:20px 24px}
+.ev-card-body p{font-size:14px;color:var(--mid);line-height:1.75;margin-bottom:12px}
+.ev-card-body p:last-child{margin-bottom:0}
+.ev-card-body p strong{color:var(--white)}
+.ev-card-body p a{color:var(--accent-l);text-decoration:underline;text-decoration-color:rgba(77,184,255,.3)}
+.ev-card-img{width:100%;display:block;border-top:1px solid var(--border)}
+.ev-card-img img{width:100%;display:block;max-height:280px;object-fit:cover}
+
+/* Sessions mini table */
+.sess-table{width:100%;border-collapse:collapse;margin-top:16px}
+.sess-table tr{border-bottom:1px solid rgba(77,184,255,.07)}
+.sess-table tr:last-child{border-bottom:none}
+.sess-table tr.featured-row{background:rgba(77,184,255,.06)}
+.sess-table td{padding:12px 0;vertical-align:top;font-size:12px}
+.sess-table td:first-child{color:var(--muted);width:100px;padding-right:16px;font-size:11px;letter-spacing:.05em}
+.sess-table td:nth-child(2){color:rgba(77,184,255,.7);width:90px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding-right:12px}
+.sess-table .st-title{color:var(--white);font-weight:600;font-size:13px;display:block;margin-bottom:2px}
+.sess-table .st-spk{color:var(--muted);font-size:11px}
+.sess-incisiv{font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);background:var(--accent-bg);border:1px solid var(--accent-bd);padding:2px 8px;border-radius:100px;display:inline-block;margin-left:8px;vertical-align:middle}
+
+/* Speakeasy inside Jello */
+.speakeasy-card{background:var(--card2);border:1px solid var(--border);border-radius:14px;padding:28px;margin-top:14px;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center}
+.speakeasy-logo{display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.speakeasy-logo img{width:180px;display:block}
+.speakeasy-info p{font-size:14px;color:var(--mid);line-height:1.75;margin-bottom:10px}
+.speakeasy-info p strong{color:var(--white)}
+.sponsor-strip{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0}
+.sp{font-size:10px;font-weight:500;color:var(--muted);background:rgba(255,255,255,.04);border:1px solid var(--border2);padding:4px 12px;border-radius:100px}
+
+/* Shoptalk stats bar */
+.stats-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:20px 0}
+.stat-cell{background:var(--card2);padding:20px;text-align:center}
+.stat-cell .sc-n{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--accent);line-height:1;display:block;margin-bottom:4px}
+.stat-cell .sc-l{font-size:11px;color:var(--muted)}
+
+/* ══════════════════════════════
+   5. STRAIGHT FROM THE SHAKER
+══════════════════════════════ */
+.partner-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:2px}
+.pc{background:var(--card);padding:24px 20px;transition:background .2s}
 .pc:hover{background:var(--card2)}
-.plbl{font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;margin-bottom:10px;display:block}
-.plbl.pr{color:var(--pink)}
+.plbl{font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;margin-bottom:8px;display:block}
+.plbl.pr{color:var(--accent)}
 .plbl.ps{color:rgba(255,255,255,.28)}
-.pc h3{font-size:14px;font-weight:600;color:var(--white);margin-bottom:9px;line-height:1.35}
-.pc p{font-size:13px;color:var(--muted);line-height:1.65}
-.bline{background:var(--card2);border:1px solid var(--border);border-radius:14px;padding:28px 32px;margin-top:20px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
-.bline p{font-size:15px;color:var(--mid);line-height:1.72;max-width:600px}
+.pc h3{font-size:13px;font-weight:600;color:var(--white);margin-bottom:7px;line-height:1.3}
+.pc p{font-size:12px;color:var(--muted);line-height:1.62}
+.bline{background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:24px 28px;margin-top:16px;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap}
+.bline p{font-size:14px;color:var(--mid);line-height:1.72;max-width:560px}
 .bline p strong{color:var(--white)}
 
-/* ══ 6. ON THE HOUSE ══ */
-.house-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
-.infog-frame{border-radius:14px;overflow:hidden;border:1px solid var(--border);margin-bottom:20px}
+/* ══════════════════════════════
+   6. ON THE HOUSE
+══════════════════════════════ */
+.house-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.infog-frame{border-radius:12px;overflow:hidden;border:1px solid var(--border)}
 .infog-frame img{width:100%;display:block}
 
-/* ══ 7-9. EVENT SECTIONS ══ */
-.event-hero{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-.ev-img{border-radius:16px;overflow:hidden;border:1px solid var(--border)}
-.ev-img img{width:100%;display:block}
-.ev-meta{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:18px}
-.ev-title{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,42px);font-weight:700;line-height:1.1;margin-bottom:18px}
-.ev-title em{color:var(--pink);font-style:italic}
-.ev-body{font-size:15px;color:var(--mid);line-height:1.78;margin-bottom:12px}
-.ev-body a{color:var(--pink-l);text-decoration:underline;text-decoration-color:rgba(240,122,181,.35)}
-.ev-body strong{color:var(--white)}
-.sponsor-strip{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
-.sp{font-size:11px;font-weight:500;color:var(--muted);background:rgba(255,255,255,.05);border:1px solid var(--border2);padding:5px 13px;border-radius:100px}
-
-/* WRC layout */
-.wrc-layout{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-.wrc-logo-wrap{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:48px;display:flex;align-items:center;justify-content:center}
-.wrc-logo-wrap img{width:100%;max-width:260px;display:block}
-
-/* Incisiv Insights */
-.ii-banner{position:relative;border-radius:20px;overflow:hidden;background:var(--card);border:1px solid var(--border);padding:48px;margin-bottom:40px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center}
-.ii-banner-glow{position:absolute;top:-80px;right:-40px;width:340px;height:340px;background:radial-gradient(circle,rgba(232,53,138,.13) 0%,transparent 65%);pointer-events:none}
-.ii-banner-eyebrow{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--pink);margin-bottom:14px;display:block}
-.ii-banner h2{font-family:'Playfair Display',serif;font-size:clamp(24px,3vw,38px);font-weight:700;line-height:1.15;color:#fff;margin-bottom:12px}
-.ii-banner h2 em{color:var(--pink);font-style:italic}
-.ii-banner p{font-size:15px;color:var(--mid);line-height:1.75;max-width:520px}
-.ii-logo-box{flex-shrink:0;display:flex;align-items:center;justify-content:center}
-.ii-logo-box img{height:70px;width:auto;filter:invert(1) brightness(10);opacity:.85}
-.ii-articles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.ii-article{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;text-decoration:none;display:flex;flex-direction:column;gap:12px;transition:border-color .25s,background .25s,transform .25s}
-.ii-article:hover{border-color:rgba(232,53,138,.4);background:var(--card2);transform:translateY(-3px)}
-.ii-article-num{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--pink)}
-.ii-article-title{font-size:15px;font-weight:600;color:var(--white);line-height:1.45;flex:1}
-.ii-article-cta{font-size:12px;font-weight:600;color:var(--pink-l);letter-spacing:.06em;display:flex;align-items:center;gap:6px}
-.alist{display:flex;flex-direction:column;gap:10px}
-.al{display:flex;align-items:center;justify-content:space-between;gap:14px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 18px;text-decoration:none;color:var(--white);font-size:14px;font-weight:500;line-height:1.4;transition:border-color .2s,background .2s}
-.al:hover{border-color:var(--pink-bd);background:var(--card2)}
-.al .ar{color:var(--pink);font-size:16px;flex-shrink:0}
-.al.dim{opacity:.35;pointer-events:none}
+/* ══════════════════════════════
+   7. SECOND ROUND
+══════════════════════════════ */
+/* WRC card */
+.wrc-card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:12px}
+.wrc-card-inner{display:grid;grid-template-columns:200px 1fr;align-items:stretch}
+.wrc-logo-col{background:var(--card2);display:flex;align-items:center;justify-content:center;padding:36px 28px;border-right:1px solid var(--border)}
+.wrc-logo-col img{width:100%;max-width:140px;display:block}
+.wrc-body{padding:28px}
+.wrc-body h3{font-family:'Playfair Display',serif;font-size:clamp(16px,2vw,22px);font-weight:700;color:var(--white);margin-bottom:6px;line-height:1.2}
+.wrc-body h3 em{color:var(--accent);font-style:italic}
+.wrc-meta{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:12px}
+.wrc-body p{font-size:13px;color:var(--mid);line-height:1.72;margin-bottom:8px}
+.wrc-body p strong{color:var(--white)}
+.wrc-body p a{color:var(--accent-l);text-decoration:underline;text-decoration-color:rgba(77,184,255,.3)}
 
 /* NY Dinners */
-.ny-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px}
-.ny-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:8px;transition:border-color .2s}
-.ny-card:hover{border-color:var(--pink-bd)}
-.ny-card h4{font-size:14px;font-weight:600;color:var(--white);line-height:1.3}
-.ny-card p{font-size:13px;color:var(--muted);line-height:1.6;flex:1}
-.tag{display:inline-flex;align-items:center;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:100px;align-self:flex-start}
-.tag.open{background:var(--pink-bg);border:1px solid var(--pink-bd);color:var(--pink-l)}
-.tag.sold{background:rgba(255,255,255,.06);border:1px solid var(--border2);color:var(--muted)}
-.tag.hold{background:rgba(255,255,255,.04);border:1px solid var(--border);color:rgba(255,255,255,.28)}
+.ny-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
+.ny-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:7px;transition:border-color .2s}
+.ny-card:hover{border-color:var(--accent-bd)}
+.ny-card h4{font-size:13px;font-weight:600;color:var(--white);line-height:1.3}
+.ny-card p{font-size:12px;color:var(--muted);line-height:1.6;flex:1}
+.tag{display:inline-flex;align-items:center;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:100px;align-self:flex-start}
+.tag.open{background:var(--accent-bg);border:1px solid var(--accent-bd);color:var(--accent-l)}
+.tag.sold{background:rgba(255,255,255,.05);border:1px solid var(--border2);color:var(--muted)}
+.tag.hold{background:rgba(255,255,255,.03);border:1px solid var(--border);color:rgba(255,255,255,.25)}
 .ny-note{font-size:13px;color:var(--muted);line-height:1.65}
-.ny-note a{color:var(--pink-l)}
+.ny-note a{color:var(--accent-l)}
 
-/* ══ FINAL CTA ══ */
-.final{background:var(--dark);text-align:center;padding:120px 60px;border-top:1px solid var(--border)}
-.final-inner{max-width:600px;margin:0 auto}
-.final-inner h2{font-family:'Playfair Display',serif;font-size:clamp(34px,5.5vw,62px);font-weight:700;line-height:1.06;margin-bottom:20px}
-.final-inner h2 em{color:var(--pink);font-style:italic}
-.final-inner p{font-size:16px;color:var(--muted);line-height:1.8;margin-bottom:38px}
+/* ══════════════════════════════
+   8. INCISIV INSIGHTS
+══════════════════════════════ */
+.ii-intro{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;margin-bottom:28px}
+.ii-intro p{font-size:15px;color:var(--mid);line-height:1.78}
+.ii-logo{height:56px;width:auto;filter:invert(1) brightness(10);opacity:.8;flex-shrink:0}
+.ii-articles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.ii-art{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px;text-decoration:none;display:flex;flex-direction:column;gap:10px;transition:border-color .25s,background .25s,transform .2s}
+.ii-art:hover{border-color:var(--accent-bd);background:var(--card2);transform:translateY(-3px)}
+.ii-art-n{font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+.ii-art-t{font-size:14px;font-weight:600;color:var(--white);line-height:1.45;flex:1}
+.ii-art-cta{font-size:11px;font-weight:600;color:var(--accent-l);letter-spacing:.05em}
+
+/* ══════════════════════════════
+   FINAL CTA
+══════════════════════════════ */
+.final{background:var(--dark);text-align:center;padding:110px 60px;border-top:1px solid var(--border)}
+.final-inner{max-width:560px;margin:0 auto}
+.final-inner h2{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,58px);font-weight:700;line-height:1.06;margin-bottom:18px}
+.final-inner h2 em{color:var(--accent);font-style:italic}
+.final-inner p{font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:34px}
 .fbtns{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
 
 /* FOOTER */
-footer{background:var(--black);border-top:1px solid var(--border);padding:28px 60px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+footer{background:var(--black);border-top:1px solid var(--border);padding:24px 60px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
 .fl{display:flex;align-items:center;gap:12px}
-.flogo{height:22px;filter:brightness(0) invert(1);opacity:.4}
+.flogo{height:20px;filter:brightness(0) invert(1);opacity:.35}
 .fn{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:var(--white)}
-.fn em{color:var(--pink);font-style:italic}
+.fn em{color:var(--accent);font-style:italic}
 .fr{font-size:11px;color:var(--muted);letter-spacing:.05em}
 
 /* RESPONSIVE */
 @media(max-width:960px){
   nav,nav.s{padding:14px 24px}
-  .hbody,.wrap{padding-left:24px;padding-right:24px}
-  .wrap{padding:0 24px}
-  section{padding:72px 0}
-  .deeper,.final{padding-left:24px;padding-right:24px}
-  .finding{grid-template-columns:1fr}
-  .fstat,.fbody{border-right:none;border-bottom:1px solid var(--border)}
-  .chart-row,.deeper-inner,.jello-layout,.jello-body,.house-grid,.event-hero,.wrc-layout,.ii-banner,.ii-articles{grid-template-columns:1fr}
-  .ii-logo-box{display:none}
-  .jello-banner-inner{grid-template-columns:1fr;padding:32px 28px}
-  .jello-banner-badge{display:none}
+  .wrap,.hbody{padding-left:24px;padding-right:24px}
+  .deeper-inner,.chart-row,.house-grid,.ii-articles,.ii-intro,.speakeasy-card{grid-template-columns:1fr}
+  .finding-top{grid-template-columns:1fr}
+  .fstat{border-right:none;border-bottom:1px solid var(--border)}
   .partner-grid{grid-template-columns:1fr 1fr}
   .ny-grid{grid-template-columns:1fr}
-  .deeper-right,.wrc-logo-wrap{position:static}
-  footer{flex-direction:column;text-align:center;padding:24px}
+  .wrc-card-inner{grid-template-columns:1fr}
+  .wrc-logo-col{border-right:none;border-bottom:1px solid var(--border);padding:24px}
+  .stats-bar{grid-template-columns:1fr}
+  .speakeasy-logo{display:none}
+  .ii-logo{display:none}
   .bline{flex-direction:column;align-items:flex-start}
   .final{padding:80px 24px}
+  footer{flex-direction:column;text-align:center;padding:20px 24px}
 }
 @media(max-width:580px){
-  .partner-grid{grid-template-columns:1fr}
-  .chart-stats{grid-template-columns:1fr 1fr}
+  .partner-grid,.chart-stats,.ii-articles{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -313,7 +315,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:28px 6
   <video class="hbg-video" id="herovid" muted loop playsinline webkit-playsinline disablePictureInPicture x-webkit-airplay="deny">
     <source src="hero-video.mp4" type="video/mp4">
   </video>
-  <img class="hbg" src="dirty martini bg.jpg" alt="" style="z-index:-1" />
+  <img class="hbg" src="dirty martini bg.jpg" alt="" />
   <div class="hveil"></div>
   <div class="hbody">
     <div class="hkick">Volume 18 &nbsp;·&nbsp; March 2026 &nbsp;·&nbsp; Incisiv</div>
@@ -326,6 +328,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:28px 6
       <span class="htag">Straight from the Shaker</span>
       <span class="htag">On the House</span>
       <span class="htag">Second Round</span>
+      <span class="htag">Incisiv Insights</span>
     </div>
   </div>
   <div class="scrollhint">
@@ -336,20 +339,26 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:28px 6
 
 
 <!-- ══════════════════════════════════════
-  2. THE DIRTY DETAILS
+  2. THE DIRTY DETAILS + DIVE DEEPER
 ══════════════════════════════════════ -->
 <section class="sec dark">
   <div class="wrap">
 
-    <div class="ey fu">The Dirty Details</div>
-    <h2 class="st fu">Connected Retail Experience Study:<br/><em>The New Omnichannel Reality</em></h2>
-    <p class="sl fu">In partnership with Verizon and Cisco, we released our fifth annual study across grocery and specialty segments. AI is universally acknowledged as table stakes — 83% say it's necessary to compete — but only 6% consider their capabilities mature. The ambition-to-execution gap is real.</p>
+    <div class="fu">
+      <span class="sec-num">01</span>
+      <span class="sec-label">The Dirty <em>Details</em></span>
+      <div class="sec-rule"></div>
+    </div>
+
+    <p class="fu" style="font-size:15px;color:var(--mid);line-height:1.8;margin-bottom:36px;max-width:700px">In partnership with Verizon and Cisco, we released our fifth annual Connected Retail Experience Study across grocery and specialty segments. AI is universally acknowledged as table stakes — 83% say it's necessary to compete — but only 6% consider their capabilities mature.</p>
 
     <div class="finding fu">
-      <div class="fstat"><div class="fnum">16%</div><div class="flbl">satisfied with in-store personalization</div></div>
-      <div class="fbody">
-        <h4>The Personalization Paradox Is Getting Worse, Not Better</h4>
-        <p>44% of retailers say in-store personalization is important, but only 16% are satisfied with what they're delivering. Drop into omnichannel and satisfaction falls to just 12%. Siloed data and disconnected systems continue to block progress.</p>
+      <div class="finding-top">
+        <div class="fstat"><div class="fnum">16%</div><div class="flbl">satisfied with in-store personalization</div></div>
+        <div class="fbody">
+          <h4>The Personalization Paradox Is Getting Worse, Not Better</h4>
+          <p>44% of retailers say in-store personalization is important, but only 16% are satisfied with what they're delivering. Drop into omnichannel and satisfaction falls to just 12%. Siloed data and disconnected systems continue to block progress.</p>
+        </div>
       </div>
       <div class="fgtm">
         <span class="fgtm-lbl">What This Means for B2B Tech Marketing</span>
@@ -358,22 +367,26 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:28px 6
     </div>
 
     <div class="finding fu">
-      <div class="fstat"><div class="fnum">2×</div><div class="flbl">mobile tools for associates in two years</div></div>
-      <div class="fbody">
-        <h4>Retailers Are Betting on Associates, Not Just Algorithms</h4>
-        <p>Mobile tools deployed for associates have doubled in the past two years. Push-to-talk, dedicated Wi-Fi, inventory apps, and video-based training are now table stakes. The focus has moved from hiring more people to making each associate more effective on the floor.</p>
+      <div class="finding-top">
+        <div class="fstat"><div class="fnum">2×</div><div class="flbl">mobile tools for associates in two years</div></div>
+        <div class="fbody">
+          <h4>Retailers Are Betting on Associates, Not Just Algorithms</h4>
+          <p>Mobile tools deployed for associates have doubled in the past two years. Push-to-talk, dedicated Wi-Fi, inventory apps, and video-based training are now table stakes. The focus has moved from hiring more people to making each associate more effective on the floor.</p>
+        </div>
       </div>
       <div class="fgtm">
         <span class="fgtm-lbl">What This Means for B2B Tech Marketing</span>
-        <p>Associate enablement is the most active investment area in stores right now. If your solution touches workforce productivity, training, or real-time information access, this is your moment. The buyer is listening. Access to customer data on mobile is set to grow from 40% to 56% within two years.</p>
+        <p>Associate enablement is the most active investment area in stores right now. If your solution touches workforce productivity, training, or real-time information access, this is your moment. Access to customer data on mobile is set to grow from 40% to 56% within two years.</p>
       </div>
     </div>
 
     <div class="finding fu">
-      <div class="fstat"><div class="fnum">68%</div><div class="flbl">still exploring or planning AI strategy</div></div>
-      <div class="fbody">
-        <h4>AI Enthusiasm Is Universal. AI Execution Is Not.</h4>
-        <p>The jump from planning to production stalls — complicated by poor or siloed data (55%), system integration challenges (48%), and shortage of specialized talent (44%). Grocers deploy AI against operations. Specialty retailers lean into customer-facing applications.</p>
+      <div class="finding-top">
+        <div class="fstat"><div class="fnum">68%</div><div class="flbl">still exploring or planning AI strategy</div></div>
+        <div class="fbody">
+          <h4>AI Enthusiasm Is Universal. AI Execution Is Not.</h4>
+          <p>The jump from planning to production stalls — complicated by poor or siloed data (55%), system integration challenges (48%), and shortage of specialized talent (44%). Grocers deploy AI against operations. Specialty retailers lean into customer-facing applications.</p>
+        </div>
       </div>
       <div class="fgtm">
         <span class="fgtm-lbl">What This Means for B2B Tech Marketing</span>
@@ -382,20 +395,22 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:28px 6
     </div>
 
     <div class="finding fu">
-      <div class="fstat"><div class="fnum">61%</div><div class="flbl">report revenue impact from poor digital experiences</div></div>
-      <div class="fbody">
-        <h4>The Network Is the New Bottleneck</h4>
-        <p>67% of network upgrades are now driven by AI and ML, yet only 39% of retailers are satisfied with their edge computing support, and 49% with managing peak traffic. Network performance is no longer an IT concern — it's a commercial one.</p>
+      <div class="finding-top">
+        <div class="fstat"><div class="fnum">61%</div><div class="flbl">report revenue impact from poor digital experiences</div></div>
+        <div class="fbody">
+          <h4>The Network Is the New Bottleneck</h4>
+          <p>67% of network upgrades are now driven by AI and ML, yet only 39% of retailers are satisfied with their edge computing support. Network performance is no longer an IT concern — it's a commercial one.</p>
+        </div>
       </div>
       <div class="fgtm">
         <span class="fgtm-lbl">What This Means for B2B Tech Marketing</span>
-        <p>If you're in infrastructure, connectivity, or edge computing, this data reframes the conversation from cost-center to revenue-enabler. For non-infra vendors: your AI solution is only as good as the network it runs on. Partner messaging with connectivity providers isn't optional.</p>
+        <p>If you're in infrastructure, connectivity, or edge computing, this data reframes the conversation from cost-center to revenue-enabler. Your AI solution is only as good as the network it runs on. Partner messaging with connectivity providers isn't optional.</p>
       </div>
     </div>
 
     <div class="chart-row fu">
       <div class="chart-frame">
-        <img src="chart.png" alt="The AI Maturity Curve: Progress but not scale" />
+        <img src="chart.png" alt="The AI Maturity Curve" />
       </div>
       <div class="chart-stats">
         <div class="cstat"><div class="cstat-n">83%</div><p>say AI is necessary to compete — but only 6% have mature capabilities</p></div>
@@ -409,36 +424,26 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:28px 6
       <a href="https://www.incisiv.com/the-new-omnichannel-reality-ai-is-required-to-compete-yet-hard-to-implement" target="_blank" class="btn bp">Download the Full Study &rarr;</a>
     </div>
 
-  </div>
-</section>
+    <!-- DIVE DEEPER — unified commerce, same section -->
+    <div class="deeper-sub fu">
+      <span class="deeper-sub-label">Dive Deeper</span>
+      <p style="font-family:'Playfair Display',serif;font-size:clamp(20px,2.8vw,30px);font-weight:700;line-height:1.2;color:var(--white);margin-bottom:10px">Unified Commerce in an <em style="color:var(--accent);font-style:italic">AI World</em></p>
+      <p style="font-size:14px;color:var(--mid);line-height:1.78;max-width:660px">This month, we released a new report — <strong style="color:var(--white)">Unified Commerce in an AI World: What Breaks When Intelligence Outpaces Infrastructure.</strong> The AI experimentation phase is over. AI agents in 2026 reason across product catalogs, negotiate fulfillment options, and execute purchases — but only 17% of retailers rate themselves as "Leading" in unified commerce maturity.</p>
+    </div>
 
-
-<!-- ══════════════════════════════════════
-  3. DIVE DEEPER — UNIFIED COMMERCE
-══════════════════════════════════════ -->
-<div class="deeper">
-  <div class="wrap">
-    <p class="ey fu" style="margin-bottom:12px">Dive Deeper</p>
-    <p class="fu" style="font-size:15px;color:var(--mid);max-width:700px;line-height:1.75;margin-bottom:48px">Dive deeper into our cross-industry research and content. This month, we released a new report — <strong style="color:var(--white)">Unified Commerce in an AI World: What Breaks When Intelligence Outpaces Infrastructure.</strong></p>
-
-    <div class="deeper-inner">
+    <div class="deeper-inner fu">
       <div>
-        <h3 class="fu" style="font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,32px);font-weight:700;line-height:1.15;margin-bottom:14px">Unified Commerce in an <em style="color:var(--pink);font-style:italic">AI World</em></h3>
-        <p class="fu" style="font-size:14px;color:var(--mid);line-height:1.8;margin-bottom:28px">The AI experimentation phase is over. AI agents in 2026 don't just chat — they reason across product catalogs, negotiate fulfillment options, and execute purchases. MIT reports 95% of enterprise GenAI pilots fail to deliver ROI. Our research shows only 17% of retailers rate themselves as "Leading" in unified commerce maturity — and 84% are making decisions with incomplete information.</p>
-        <ul class="theme-list fu" style="list-style:none">
-          <li class="ti"><div class="tn">1</div><div><strong>The AI Mandate</strong><span>What separates leaders is whether AI can reason across unified, real-time data. When profiles, inventory, and fulfillment operate in silos, AI makes conservative choices and delivers limited impact.</span></div></li>
-          <li class="ti"><div class="tn">2</div><div><strong>AI Doesn't Fix Bad Data — It Industrializes It</strong><span>Latency turns intelligence into risk. Most retail stacks weren't built for real-time unified data, forcing AI to act on partial truth. Neither guessing conservatively nor acting without full context is good.</span></div></li>
-          <li class="ti"><div class="tn">3</div><div><strong>The Unified Foundation Illusion</strong><span>Integration moves data between systems but doesn't resolve conflicts. "Near real-time" hides reconciliation delays AI can't tolerate. Optimization happens locally rather than economically.</span></div></li>
-          <li class="ti"><div class="tn">4</div><div><strong>What AI-Ready Commerce Actually Requires</strong><span>A single source of truth, real-time event streams (every click, sale, return processed as it happens), and zero-reconciliation integrity — eliminating the need for humans to determine which data is correct.</span></div></li>
-          <li class="ti"><div class="tn">5</div><div><strong>The Path Forward</strong><span>From insight to prescriptive orchestration. The agentic shift: autonomous systems simulating thousands of scenarios in real time. The trust mandate: explainable AI with clear audit trails. Human roles evolve from executing decisions to governing models.</span></div></li>
+        <ul class="theme-list">
+          <li class="ti"><div class="tn">1</div><div><strong>The AI Mandate</strong><span>What separates leaders is whether AI can reason across unified, real-time data. Silos produce conservative choices and limited impact.</span></div></li>
+          <li class="ti"><div class="tn">2</div><div><strong>AI Doesn't Fix Bad Data — It Industrializes It</strong><span>Latency turns intelligence into risk. Most retail stacks weren't built for real-time unified data, forcing AI to act on partial truth.</span></div></li>
+          <li class="ti"><div class="tn">3</div><div><strong>The Unified Foundation Illusion</strong><span>Integration moves data but doesn't resolve conflicts. "Near real-time" hides reconciliation delays AI can't tolerate.</span></div></li>
+          <li class="ti"><div class="tn">4</div><div><strong>What AI-Ready Commerce Actually Requires</strong><span>A single source of truth, real-time event streams, and zero-reconciliation integrity — eliminating human data arbitration.</span></div></li>
+          <li class="ti"><div class="tn">5</div><div><strong>The Path Forward</strong><span>From insight to prescriptive orchestration. The agentic shift: autonomous systems simulating thousands of scenarios in real time.</span></div></li>
         </ul>
-        <div class="brow fu">
-          <a href="https://www.incisiv.com/unified-commerce-in-an-ai-world" target="_blank" class="btn bp">Read the Full Market Snapshot &rarr;</a>
-        </div>
+        <a href="https://www.incisiv.com/unified-commerce-in-an-ai-world" target="_blank" class="btn bp">Read the Full Market Snapshot &rarr;</a>
       </div>
-
-      <div class="deeper-right fu">
-        <h4 style="font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:14px">The Payoff Is Real</h4>
+      <div>
+        <span class="payoff-label">The Payoff Is Real</span>
         <div class="ocards">
           <div class="oc"><div class="on">23%</div><p>Faster inventory turnover for retailers with advanced unified commerce maturity</p></div>
           <div class="oc"><div class="on">22%</div><p>Lower customer acquisition costs for unified commerce leaders</p></div>
@@ -447,8 +452,9 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:28px 6
         </div>
       </div>
     </div>
+
   </div>
-</div>
+</section>
 
 
 <!-- MARQUEE -->
@@ -477,95 +483,85 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:28px 6
 
 
 <!-- ══════════════════════════════════════
-  4. JELLO SHOT!! — SHOPTALK SPRING
+  3. JELLO SHOT — SHOPTALK SPRING + EVENTS
 ══════════════════════════════════════ -->
 <section class="sec black">
   <div class="wrap">
 
-    <div class="jello-tag fu">🍹 Jello Shot</div>
+    <div class="fu">
+      <span class="sec-num">02</span>
+      <span class="sec-label">Jello <em>Shot!!</em></span>
+      <div class="sec-rule"></div>
+    </div>
 
-    <!-- Event Banner -->
-    <div class="jello-hero-banner fu">
-      <div class="jello-banner-bg"></div>
-      <div class="jello-banner-glow"></div>
-      <div class="jello-banner-glow2"></div>
-      <div class="jello-banner-inner">
-        <div class="jello-banner-text">
-          <span class="jello-banner-eyebrow">Retail in the Age of AI</span>
-          <div class="jello-banner-title">Shoptalk <em>Spring 2026</em></div>
-          <span class="jello-banner-sub">March 24–26, 2026 &nbsp;·&nbsp; Mandalay Bay, Las Vegas</span>
-        </div>
-        <div class="jello-banner-badge">
-          <span class="bd-num">3</span>
-          <span class="bd-lbl">Days of Programming</span>
+    <div class="jello-pill fu">Shoptalk Spring 2026</div>
+
+    <p class="fu" style="font-size:15px;color:var(--mid);line-height:1.8;margin-bottom:28px;max-width:700px">Deviating from our normal flow to highlight this month's next big event. Shoptalk brings together the full community of retail, brands, tech, and the investment ecosystem to discuss where the industry is heading. We've assembled a <a href="https://www.incisiv.com/shoptalk-spring-2026" target="_blank" style="color:var(--accent-l);text-decoration:underline;text-decoration-color:rgba(77,184,255,.3)">preview of our chosen agenda</a> — if you're heading there, please reach out.</p>
+
+    <!-- Stats bar -->
+    <div class="stats-bar fu">
+      <div class="stat-cell"><span class="sc-n">50K+</span><span class="sc-l">Meetings through Meetup program</span></div>
+      <div class="stat-cell"><span class="sc-n">95%</span><span class="sc-l">Follow-up rate from connections made</span></div>
+      <div class="stat-cell"><span class="sc-n">96%</span><span class="sc-l">Rated networking "good or excellent"</span></div>
+    </div>
+
+    <!-- Shoptalk Spring card -->
+    <div class="ev-card fu">
+      <div class="ev-card-head">
+        <h3>Shoptalk <em>Spring 2026</em> &nbsp;·&nbsp; Retail in the Age of AI</h3>
+        <span class="ev-card-meta">Mar 24–26 &nbsp;·&nbsp; Mandalay Bay, Las Vegas</span>
+      </div>
+      <div class="ev-card-img">
+        <img src="shoptalk-hero.png" alt="Shoptalk Spring 2026" />
+      </div>
+      <div class="ev-card-body">
+        <p>Three days of programming across five stages: AI Stage, Marketing & Media Stage, Cultivating Customers Stage, Technology Stage, and Mainstage. Here are the sessions we're watching:</p>
+        <table class="sess-table">
+          <tr>
+            <td>Mar 24 · 12:00 PM</td>
+            <td>AI Stage</td>
+            <td><span class="st-title">Debate: AI Agents Will / Will Not Transform Retail</span><span class="st-spk">Ekta Chopra (E.L.F Beauty) · Sarah Marzano (EMARKETER) · Scot Wingo (ReFiBuy)</span></td>
+          </tr>
+          <tr class="featured-row">
+            <td>Mar 25 · 11:10 AM</td>
+            <td>Tech Stage</td>
+            <td><span class="st-title">Driving Costs Out of Fulfillment and Delivery <span class="sess-incisiv">Incisiv</span></span><span class="st-spk">Moderated by Gaurav Pant · Wing/Alphabet · SuperCircle · Burq</span></td>
+          </tr>
+          <tr>
+            <td>Mar 25 · 2:50 PM</td>
+            <td>Mainstage</td>
+            <td><span class="st-title">Dmitry Shevelenko — Perplexity</span><span class="st-spk">One of the most anticipated keynotes of the conference</span></td>
+          </tr>
+          <tr>
+            <td>Mar 26 · 9:25 AM</td>
+            <td>Mainstage</td>
+            <td><span class="st-title">Built for the Long Run: How New Balance Sets a Global Pace</span><span class="st-spk">Joe Preston — President & CEO, New Balance</span></td>
+          </tr>
+        </table>
+        <div class="brow" style="margin-top:20px">
+          <a href="https://www.incisiv.com/shoptalk-spring-2026" target="_blank" class="btn bp">View Our Chosen Agenda &rarr;</a>
+          <a href="https://spring.shoptalk.com/agendas/2026-agenda?day=WednesdayMarch25" target="_blank" class="btn bg">View Gaurav's Session &rarr;</a>
         </div>
       </div>
     </div>
 
-    <!-- Body: copy + stats -->
-    <div class="jello-body fu">
-      <div class="jello-copy-col">
-        <p>Deviating from our normal flow to highlight this month's next big event. Shoptalk brings together the full community of retail, brands, tech, and the investment ecosystem to discuss where the industry is heading.</p>
-        <p>We've assembled a <a href="https://www.incisiv.com/shoptalk-spring-2026" target="_blank">preview of our chosen agenda</a> — take a look, and if you're heading there, please reach out and we'll make time to connect with the Incisiv team.</p>
-      </div>
-      <div class="jello-stats">
-        <div class="jello-stat-card">
-          <span class="sc-num">50K+</span>
-          <span class="sc-txt">Meetings through the Meetup program</span>
+    <!-- Speakeasy card -->
+    <div class="speakeasy-card fu">
+      <div class="speakeasy-info">
+        <span style="font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:8px">The Speakeasy at Shoptalk 2026</span>
+        <p style="font-family:'Playfair Display',serif;font-size:clamp(16px,2vw,22px);font-weight:700;color:var(--white);margin-bottom:12px;line-height:1.2">A Private Dining Experience at <em style="color:var(--accent);font-style:italic">Pisces, the Venetian</em></p>
+        <p>After producing the last two Speakeasy@Shoptalk Dinners on site, we're elevating the experience this year at <strong>Pisces at the Venetian</strong>. Invitation-only executive dinner, Wednesday March 25.</p>
+        <p>Thankful to our sponsors:</p>
+        <div class="sponsor-strip">
+          <span class="sp">Avanade</span>
+          <span class="sp">Four Kites</span>
+          <span class="sp">Microsoft</span>
         </div>
-        <div class="jello-stat-card">
-          <span class="sc-num">95%</span>
-          <span class="sc-txt">Follow-up rate from connections made</span>
-        </div>
-        <div class="jello-stat-card">
-          <span class="sc-num">96%</span>
-          <span class="sc-txt">Rated networking as "good or excellent"</span>
-        </div>
+        <a href="https://www.incisiv.com/speakeasy-shoptalk-2026" target="_blank" class="btn bp" style="margin-top:8px">Learn More &rarr;</a>
       </div>
-    </div>
-
-    <!-- Can't-miss sessions -->
-    <div class="jello-sessions fu">
-      <div class="jello-sess-head">
-        <span>Can't-Miss Sessions</span>
-        <span class="sh-badge">Our Picks</span>
+      <div class="speakeasy-logo">
+        <img src="logo-speakeasy.png" alt="The Speakeasy @ Shoptalk 2026" />
       </div>
-      <div class="jello-sess-row">
-        <div class="sess-time">Mar 24 · 12:00 PM</div>
-        <div class="sess-info">
-          <div class="si-stage">AI Stage</div>
-          <div class="si-title">Debate: AI Agents Will / Will Not Transform Retail</div>
-          <div class="si-speakers">Ekta Chopra (E.L.F Beauty) · Sarah Marzano (EMARKETER) · Scot Wingo (ReFiBuy)</div>
-        </div>
-      </div>
-      <div class="jello-sess-row featured">
-        <div class="sess-time">Mar 25 · 11:10 AM</div>
-        <div class="sess-info">
-          <div class="si-stage">Technology Stage &nbsp;·&nbsp; Incisiv</div>
-          <div class="si-title">Driving Costs Out of Fulfillment and Delivery</div>
-          <div class="si-speakers">Moderated by <strong>Gaurav Pant (Incisiv)</strong> with Heather Rivera (Wing/Alphabet) · Chloe Songer (SuperCircle) · Salman Habib (Burq)</div>
-        </div>
-      </div>
-      <div class="jello-sess-row">
-        <div class="sess-time">Mar 25 · 2:50 PM</div>
-        <div class="sess-info">
-          <div class="si-stage">Mainstage Keynote</div>
-          <div class="si-title">Dmitry Shevelenko — Perplexity</div>
-          <div class="si-speakers">One of the most anticipated keynotes of the conference</div>
-        </div>
-      </div>
-      <div class="jello-sess-row">
-        <div class="sess-time">Mar 26 · 9:25 AM</div>
-        <div class="sess-info">
-          <div class="si-stage">Mainstage Keynote</div>
-          <div class="si-title">Built for the Long Run: How New Balance Sets a Global Pace</div>
-          <div class="si-speakers">Joe Preston — President & CEO, New Balance</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="brow fu">
-      <a href="https://www.incisiv.com/shoptalk-spring-2026" target="_blank" class="btn bp">View Our Chosen Agenda &rarr;</a>
     </div>
 
   </div>
@@ -573,20 +569,24 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:28px 6
 
 
 <!-- ══════════════════════════════════════
-  5. STRAIGHT FROM THE SHAKER
+  4. STRAIGHT FROM THE SHAKER
 ══════════════════════════════════════ -->
 <section class="sec dark">
   <div class="wrap">
 
-    <div class="ey fu">Straight from the Shaker</div>
-    <h2 class="st fu">Why <em>Partnerships</em> Break — and How to Fix Them</h2>
-    <p class="sl fu">This piece tackles the uncomfortable truth hiding inside most partner ecosystems: they look great in strategy decks and fall apart the moment a customer actually needs them to work together. KPMG reports 75% of executives view partner ecosystems as essential. Yet only 13% say their practices consistently deliver outcomes.</p>
+    <div class="fu">
+      <span class="sec-num">03</span>
+      <span class="sec-label">Straight from <em>the Shaker</em></span>
+      <div class="sec-rule"></div>
+    </div>
+
+    <p class="fu" style="font-size:15px;color:var(--mid);line-height:1.8;margin-bottom:36px;max-width:700px">This piece tackles the uncomfortable truth hiding inside most partner ecosystems: they look great in strategy decks and fall apart the moment a customer actually needs them to work together. KPMG reports 75% of executives view partner ecosystems as essential — yet only 13% say their practices consistently deliver outcomes.</p>
 
     <div class="partner-grid fu">
       <div class="pc"><span class="plbl pr">Problem 01</span><h3>The Accountability Vacuum</h3><p>68% of companies struggle with unclear role definition. If nobody owns the space between partners, nobody owns the customer outcome.</p></div>
-      <div class="pc"><span class="plbl pr">Problem 02</span><h3>The Go-to-Market Gap</h3><p>Sales teams rarely get the "better together" story. Budget falls into a gray area and the partnership quietly becomes a logo on a slide rather than a pipeline engine.</p></div>
+      <div class="pc"><span class="plbl pr">Problem 02</span><h3>The Go-to-Market Gap</h3><p>Sales teams rarely get the "better together" story. Budget falls into a gray area and the partnership quietly becomes a logo on a slide.</p></div>
       <div class="pc"><span class="plbl pr">Problem 03</span><h3>The Incentive Misalignment</h3><p>71% cite aligning goals as the single biggest ecosystem challenge. Individual optimization creates fragmented outcomes for the buyer.</p></div>
-      <div class="pc"><span class="plbl ps">Solution 01</span><h3>Invisible Infrastructure</h3><p>Build shared workflows where teams operate as a single unit from the start. Customers shouldn't detect where one partner ends and another begins.</p></div>
+      <div class="pc"><span class="plbl ps">Solution 01</span><h3>Invisible Infrastructure</h3><p>Build shared workflows where teams operate as a single unit. Customers shouldn't detect where one partner ends and another begins.</p></div>
       <div class="pc"><span class="plbl ps">Solution 02</span><h3>The Utility of Truth</h3><p>Technical connectivity isn't operational integration. Customer intent, history, and context must travel seamlessly across partner boundaries.</p></div>
       <div class="pc"><span class="plbl ps">Solution 03</span><h3>Mutual Risk</h3><p>Activity metrics don't drive execution. Set outcome-based measurement — milestone payouts tied to onboarding, joint bonuses triggered by measurable customer impact.</p></div>
     </div>
@@ -601,26 +601,27 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:28px 6
 
 
 <!-- ══════════════════════════════════════
-  6. ON THE HOUSE
+  5. ON THE HOUSE
 ══════════════════════════════════════ -->
 <section class="sec black">
   <div class="wrap">
 
-    <div class="ey fu">On the House</div>
-    <h2 class="st fu">Top 5 AI Use Cases &amp; <em>Incisiv Insights</em></h2>
-    <p class="sl fu">Sip on our team's latest research, speaking sessions, and industry news — a quick scan of recently published and upcoming work.</p>
+    <div class="fu">
+      <span class="sec-num">04</span>
+      <span class="sec-label">On the <em>House</em></span>
+      <div class="sec-rule"></div>
+    </div>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start">
+    <div class="house-grid fu">
       <div>
-        <div class="infog-frame fu">
+        <div class="infog-frame">
           <img src="infographic.png" alt="Top 5 AI Use Cases in Retail" />
         </div>
       </div>
       <div>
-        <p class="fu" style="font-size:15px;color:var(--mid);line-height:1.78;margin-bottom:24px">There is a never-ending flow of AI-related content. For a quick-hit perspective on what our research shows as the use cases that will be most impactful to the industry — here's a teaser: <strong style="color:var(--white)">76% of retailers</strong> expect AI-driven personalization to deliver the greatest external ROI impact from AI in marketing.</p>
-        <div class="brow fu" style="margin-top:0">
-          <a href="https://www.incisiv.com/the-top-five-ai-use-cases-in-retail-for-2026" target="_blank" class="btn bp">View the Full Infographic &rarr;</a>
-        </div>
+        <p style="font-family:'Playfair Display',serif;font-size:clamp(18px,2.5vw,26px);font-weight:700;color:var(--white);line-height:1.2;margin-bottom:14px">Top 5 AI Use Cases <em style="color:var(--accent);font-style:italic">in Retail</em></p>
+        <p style="font-size:14px;color:var(--mid);line-height:1.78;margin-bottom:20px">There is a never-ending flow of AI-related content. For a quick-hit perspective on what our research shows as the use cases that will be most impactful to the industry — here's a teaser: <strong style="color:var(--white)">76% of retailers</strong> expect AI-driven personalization to deliver the greatest external ROI impact from AI in marketing.</p>
+        <a href="https://www.incisiv.com/the-top-five-ai-use-cases-in-retail-for-2026" target="_blank" class="btn bp">View the Full Infographic &rarr;</a>
       </div>
     </div>
 
@@ -629,117 +630,46 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:28px 6
 
 
 <!-- ══════════════════════════════════════
-  7. SECOND ROUND — INTRO
+  6. SECOND ROUND — WRC + NY DINNERS
 ══════════════════════════════════════ -->
 <div class="divider"></div>
 <section class="sec dark">
   <div class="wrap">
-    <div class="ey fu">Second Round — Industry Happenings</div>
-    <h2 class="st fu">Where We'll Be — <em>Q2–Q4 2026</em></h2>
-    <p class="sl fu">March and April are chock full of activity. We hope to see you at one or more of these industry events.</p>
-  </div>
-</section>
-<div class="divider"></div>
 
+    <div class="fu">
+      <span class="sec-num">05</span>
+      <span class="sec-label">Second <em>Round</em></span>
+      <div class="sec-rule"></div>
+    </div>
 
-<!-- ══════════════════════════════════════
-  8. SHOPTALK SPRING TECHNOLOGY STAGE
-══════════════════════════════════════ -->
-<section class="sec black">
-  <div class="wrap">
+    <p class="fu" style="font-size:15px;color:var(--mid);line-height:1.8;margin-bottom:36px;max-width:700px">March and April are chock full of activity. We hope to see you at one or more of these industry events.</p>
 
-    <div class="ey fu">Shoptalk Spring · Technology Stage</div>
-    <div class="event-hero">
-      <div class="fu">
-        <div class="ev-img">
-          <img src="Driving cost out of fulfillment and delivery.jpeg" alt="Driving Costs Out of Fulfillment & Delivery" />
+    <!-- World Retail Congress -->
+    <div class="wrc-card fu">
+      <div class="wrc-card-inner">
+        <div class="wrc-logo-col">
+          <img src="logo-wrc.png" alt="World Retail Congress" />
         </div>
-      </div>
-      <div>
-        <span class="ev-meta fu">March 24–26, 2026 &nbsp;·&nbsp; Mandalay Bay, Las Vegas</span>
-        <h2 class="ev-title fu">Driving Costs Out of<br/><em>Fulfillment &amp; Delivery</em></h2>
-        <p class="ev-body fu">If you're in the supply chain space, don't miss Incisiv Chief Insights Officer <strong>Gaurav Pant</strong> moderating a dynamic panel with next-gen companies, including <strong>Burq</strong>, <strong>Wing/Alphabet</strong>, and <strong>SuperCircle</strong>.</p>
-        <p class="ev-body fu">Shoptalk heads back to Vegas and Mandalay Bay. If you're heading there, please reach out — we'll make time to connect with the Incisiv team.</p>
-        <div class="brow fu">
-          <a href="https://spring.shoptalk.com/agendas/2026-agenda?day=WednesdayMarch25" target="_blank" class="btn bp">View Session &rarr;</a>
-          <a href="https://www.incisiv.com/shoptalk-spring-2026" target="_blank" class="btn bg">Our Chosen Agenda &rarr;</a>
-
+        <div class="wrc-body">
+          <span class="wrc-meta">April 2026 &nbsp;·&nbsp; Berlin</span>
+          <h3>World Retail Congress — <em>Global Studies & CxO Networking</em></h3>
+          <p style="margin-top:12px">Incisiv is heading to Berlin in partnership with the <a href="https://www.worldretailcongress.com/" target="_blank">World Retail Congress</a>. We will be releasing two landmark studies at the event:</p>
+          <p><strong>Global Supply Chain Resilience Study</strong> — in conjunction with Anaplan.</p>
+          <p><strong>First Annual Global Retail CxO Outlook</strong> — in conjunction with Manhattan Associates.</p>
+          <p>If you're looking to network with a CxO audience, you should definitely check out this event.</p>
+          <div class="brow" style="margin-top:16px">
+            <a href="https://www.worldretailcongress.com/" target="_blank" class="btn bp">Learn More &rarr;</a>
+          </div>
         </div>
       </div>
     </div>
 
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════
-  9. THE SPEAKEASY AT SHOPTALK 2026
-══════════════════════════════════════ -->
-<section class="sec dark">
-  <div class="wrap">
-
-    <div class="ey fu">The Speakeasy at Shoptalk 2026</div>
-    <div class="event-hero">
-      <div>
-        <span class="ev-meta fu">March 2026 &nbsp;·&nbsp; Las Vegas &nbsp;·&nbsp; Pisces at the Venetian</span>
-        <h2 class="ev-title fu">A Private Dining Experience<br/><em>Overlooking the Lake</em></h2>
-        <p class="ev-body fu">After producing the last two Speakeasy@Shoptalk Dinners on site, we figured it was time to get away from the same 3 restaurant options and elevate the experience. This year, we'll be heading to <strong>Pisces at the Venetian</strong>.</p>
-        <p class="ev-body fu">We're very excited and thankful to our sponsors for this year's event:</p>
-        <div class="sponsor-strip fu">
-          <span class="sp">Avanade</span>
-          <span class="sp">Four Kites</span>
-          <span class="sp">Microsoft</span>
-        </div>
-        <div class="brow fu">
-          <a href="https://www.incisiv.com/speakeasy-shoptalk-2026" target="_blank" class="btn bp">Learn More &rarr;</a>
-        </div>
-      </div>
-      <div class="fu" style="display:flex;align-items:center;justify-content:center;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:56px 40px">
-        <img src="logo-speakeasy.png" alt="The Speakeasy @ Shoptalk 2026" style="width:100%;max-width:320px;display:block" />
-      </div>
+    <!-- NY Community Dinner Series -->
+    <div class="fu" style="margin-top:40px">
+      <p style="font-family:'Playfair Display',serif;font-size:clamp(18px,2.5vw,26px);font-weight:700;color:var(--white);line-height:1.2;margin-bottom:6px">New York Community <em style="color:var(--accent);font-style:italic">Dinner Series</em></p>
+      <p style="font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:20px">4 Executive Dinners · 2026</p>
+      <p style="font-size:14px;color:var(--mid);line-height:1.78;margin-bottom:24px;max-width:660px">In 2026, we will be producing four unique executive dinners designed to spark conversation and build community. Starting in May and each subsequent quarter, we'll select a critical industry theme as the discussion driver.</p>
     </div>
-
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════
-  10. WORLD RETAIL CONGRESS
-══════════════════════════════════════ -->
-<section class="sec black">
-  <div class="wrap">
-
-    <div class="ey fu">World Retail Congress</div>
-    <div class="wrc-layout">
-      <div class="wrc-logo-wrap fu">
-        <img src="logo-wrc.png" alt="World Retail Congress" />
-      </div>
-      <div>
-        <span class="ev-meta fu">April 2026 &nbsp;·&nbsp; Berlin</span>
-        <h2 class="ev-title fu">Global Studies. <em>CxO Networking.</em></h2>
-        <p class="ev-body fu">Incisiv is heading to Berlin in partnership with the <a href="https://www.worldretailcongress.com/" target="_blank">World Retail Congress</a>. We will be releasing two landmark studies at the event:</p>
-        <p class="ev-body fu"><strong>Global Supply Chain Resilience Study</strong> — in conjunction with Anaplan.</p>
-        <p class="ev-body fu"><strong>First Annual Global Retail CxO Outlook</strong> — in conjunction with Manhattan Associates.</p>
-        <p class="ev-body fu">If you're looking to network with a CxO audience, you should definitely check out this event.</p>
-        <div class="brow fu">
-          <a href="https://www.worldretailcongress.com/" target="_blank" class="btn bp">Learn More &rarr;</a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════
-  11. NY COMMUNITY DINNER SERIES
-══════════════════════════════════════ -->
-<section class="sec dark">
-  <div class="wrap">
-
-    <div class="ey fu">New York Community Dinner Series</div>
-    <h2 class="st fu">Executive Dinners — <em>2026</em></h2>
-    <p class="sl fu">In 2026, we will be producing four unique executive dinners designed to spark conversation and build community. Starting in May and each subsequent quarter, we'll select a critical industry theme as the discussion driver.</p>
 
     <div class="ny-grid fu">
       <div class="ny-card">
@@ -768,43 +698,41 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:28px 6
 
   </div>
 </section>
+<div class="divider"></div>
 
 
 <!-- ══════════════════════════════════════
-  12. INCISIV INSIGHTS
+  7. INCISIV INSIGHTS
 ══════════════════════════════════════ -->
 <section class="sec black">
   <div class="wrap">
 
-    <!-- Banner -->
-    <div class="ii-banner fu">
-      <div class="ii-banner-glow"></div>
-      <div>
-        <span class="ii-banner-eyebrow">New Series</span>
-        <h2>Incisiv <em>Insights</em></h2>
-        <p>An ongoing series of articles, ebooks, and community dinners to keep the industry educated on how technology is transforming retail. Check out our first pieces:</p>
-      </div>
-      <div class="ii-logo-box">
-        <img src="logo-incisiv-insights.png" alt="Incisiv Insights" />
-      </div>
+    <div class="fu">
+      <span class="sec-num">06</span>
+      <span class="sec-label">Incisiv <em>Insights</em></span>
+      <div class="sec-rule"></div>
     </div>
 
-    <!-- Article cards -->
+    <div class="ii-intro fu">
+      <p>An ongoing series of articles, ebooks, and community dinners to keep the industry educated on how technology is transforming retail. Check out our first pieces:</p>
+      <img src="logo-incisiv-insights.png" alt="Incisiv Insights" class="ii-logo" />
+    </div>
+
     <div class="ii-articles fu">
-      <a href="https://www.incisiv.com/blog/unifying-data-to-make-decisions-in-the-fast-lane" target="_blank" class="ii-article">
-        <span class="ii-article-num">Article 01</span>
-        <span class="ii-article-title">Unifying Data to Make Decisions in the Fast Lane</span>
-        <span class="ii-article-cta">Read Article &rarr;</span>
+      <a href="https://www.incisiv.com/blog/unifying-data-to-make-decisions-in-the-fast-lane" target="_blank" class="ii-art">
+        <span class="ii-art-n">Article 01</span>
+        <span class="ii-art-t">Unifying Data to Make Decisions in the Fast Lane</span>
+        <span class="ii-art-cta">Read Article &rarr;</span>
       </a>
-      <a href="https://www.incisiv.com/blog/cloud-scale-to-retail-value-a-crawl-walk-run-partnership-roadmap" target="_blank" class="ii-article">
-        <span class="ii-article-num">Article 02</span>
-        <span class="ii-article-title">Cloud Scale to Retail Value: A Crawl–Walk–Run Partnership Roadmap</span>
-        <span class="ii-article-cta">Read Article &rarr;</span>
+      <a href="https://www.incisiv.com/blog/cloud-scale-to-retail-value-a-crawl-walk-run-partnership-roadmap" target="_blank" class="ii-art">
+        <span class="ii-art-n">Article 02</span>
+        <span class="ii-art-t">Cloud Scale to Retail Value: A Crawl–Walk–Run Partnership Roadmap</span>
+        <span class="ii-art-cta">Read Article &rarr;</span>
       </a>
-      <a href="https://www.incisiv.com/blog/the-endless-aisle-of-2026-ais-role-in-creating-a-seamless-journeythe-endless-aisle-of-2026-ai-role-in-creating-a-seamless-journey" target="_blank" class="ii-article">
-        <span class="ii-article-num">Article 03</span>
-        <span class="ii-article-title">The Endless Aisle of 2026: AI's Role in Creating a Seamless Journey</span>
-        <span class="ii-article-cta">Read Article &rarr;</span>
+      <a href="https://www.incisiv.com/blog/the-endless-aisle-of-2026-ais-role-in-creating-a-seamless-journeythe-endless-aisle-of-2026-ai-role-in-creating-a-seamless-journey" target="_blank" class="ii-art">
+        <span class="ii-art-n">Article 03</span>
+        <span class="ii-art-t">The Endless Aisle of 2026: AI's Role in Creating a Seamless Journey</span>
+        <span class="ii-art-cta">Read Article &rarr;</span>
       </a>
     </div>
 
@@ -813,11 +741,14 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:28px 6
 
 
 <!-- ══════════════════════════════════════
-  13. QUESTIONS? / FINAL CTA
+  8. QUESTIONS? / FINAL CTA
 ══════════════════════════════════════ -->
 <section class="final">
   <div class="final-inner">
-    <div class="ey fu" style="justify-content:center">Questions? Want to Chat?</div>
+    <div style="font-size:10px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:16px" class="fu">
+      <span style="display:inline-block;width:18px;height:1px;background:var(--accent)"></span>
+      Questions? Want to Chat?
+    </div>
     <h2 class="fu">Ready to navigate<br/><em>what comes next?</em></h2>
     <p class="fu">We're here to help you navigate your biggest challenges and win in this highly competitive market. Anytime you want to talk, simply reply to this email or book a time directly on our calendar.</p>
     <div class="fbtns fu">
@@ -841,7 +772,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:28px 6
 <script>
 gsap.registerPlugin(ScrollTrigger);
 
-// Progress
+// Progress bar
 window.addEventListener('scroll', () => {
   document.getElementById('prog').style.width =
     (window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100) + '%';
@@ -861,30 +792,26 @@ window.addEventListener('scroll', () => nav.classList.toggle('s', window.scrollY
   v.setAttribute('playsinline','');
   v.setAttribute('webkit-playsinline','');
   function play(){ v.play().catch(function(){}); }
-  // Try immediately
   play();
-  // Try on every ready state change
   v.addEventListener('loadedmetadata', play);
   v.addEventListener('canplaythrough', play);
-  // IntersectionObserver triggers play when visible
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(function(entries){
       entries.forEach(function(e){ if(e.isIntersecting) play(); });
     }, { threshold: 0.1 }).observe(v);
   }
-  // Fallback: load then play
   v.load();
   v.addEventListener('loadeddata', play);
 })();
 
 // Hero entrance
 gsap.timeline({ delay: 0.15 })
-  .to(['.hbg', '.hbg-video'], { scale: 1,   duration: 2.2, ease: 'power3.out' }, 0)
-  .to('.hkick',     { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }, 0.35)
-  .to('.hh1',       { opacity: 1, y: 0, duration: 1.0, ease: 'power2.out' }, 0.55)
-  .to('.hint',      { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }, 0.82)
-  .to('.htags',     { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out' }, 1.05)
-  .to('.scrollhint',{ opacity: 1,       duration: 0.8, ease: 'power2.out' }, 1.4);
+  .to(['.hbg', '.hbg-video'], { scale: 1, duration: 2.2, ease: 'power3.out' }, 0)
+  .to('.hkick',      { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }, 0.35)
+  .to('.hh1',        { opacity: 1, y: 0, duration: 1.0, ease: 'power2.out' }, 0.55)
+  .to('.hint',       { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }, 0.82)
+  .to('.htags',      { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out' }, 1.05)
+  .to('.scrollhint', { opacity: 1,       duration: 0.8, ease: 'power2.out' }, 1.4);
 
 // Hero parallax
 gsap.to(['.hbg', '.hbg-video'], {
@@ -892,35 +819,11 @@ gsap.to(['.hbg', '.hbg-video'], {
   scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
 });
 
-// All .fu elements
+// Scroll reveal
 gsap.utils.toArray('.fu').forEach(el => {
-  gsap.fromTo(el, { opacity: 0, y: 26 }, {
-    opacity: 1, y: 0, duration: 0.72, ease: 'power2.out',
-    scrollTrigger: { trigger: el, start: 'top 90%', toggleActions: 'play none none none' }
-  });
-});
-
-// Outcome cards stagger
-gsap.utils.toArray('.oc').forEach((c, i) => {
-  gsap.fromTo(c, { opacity: 0, x: 20 }, {
-    opacity: 1, x: 0, duration: 0.5, delay: i * 0.08, ease: 'power2.out',
-    scrollTrigger: { trigger: c, start: 'top 92%', toggleActions: 'play none none none' }
-  });
-});
-
-// Finding rows stagger
-gsap.utils.toArray('.finding').forEach((f, i) => {
-  gsap.fromTo(f, { opacity: 0, y: 20 }, {
-    opacity: 1, y: 0, duration: 0.6, delay: i * 0.04, ease: 'power2.out',
-    scrollTrigger: { trigger: f, start: 'top 92%', toggleActions: 'play none none none' }
-  });
-});
-
-// NY cards stagger
-gsap.utils.toArray('.ny-card').forEach((c, i) => {
-  gsap.fromTo(c, { opacity: 0, y: 16 }, {
-    opacity: 1, y: 0, duration: 0.5, delay: i * 0.07, ease: 'power2.out',
-    scrollTrigger: { trigger: c, start: 'top 92%', toggleActions: 'play none none none' }
+  gsap.fromTo(el, { opacity: 0, y: 24 }, {
+    opacity: 1, y: 0, duration: 0.7, ease: 'power2.out',
+    scrollTrigger: { trigger: el, start: 'top 92%', toggleActions: 'play none none none' }
   });
 });
 </script>
