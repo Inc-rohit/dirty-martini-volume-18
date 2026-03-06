@@ -73,10 +73,10 @@ nav.s{padding:14px 60px;background:rgba(5,8,15,.96);backdrop-filter:blur(20px);-
 .fu{opacity:0;transform:translateY(24px)}
 .divider{height:1px;background:var(--border)}
 
-/* SECTION HEADING — newsletter style, big but not event-page */
-.sec-eyebrow{font-size:10px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:10px;margin-bottom:10px}
+/* SECTION HEADING */
+.sec-eyebrow{font-size:9px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:10px;margin-bottom:14px;opacity:.8}
 .sec-eyebrow::before{content:'';display:inline-block;width:18px;height:1px;background:var(--accent)}
-.sec-heading{font-family:'Playfair Display',serif;font-size:clamp(32px,4.5vw,56px);font-weight:700;line-height:1.05;margin-bottom:8px}
+.sec-heading{font-family:'Playfair Display',serif;font-size:clamp(40px,5.5vw,72px);font-weight:700;line-height:1;letter-spacing:-.02em;margin-bottom:8px}
 .sec-heading em{color:var(--accent);font-style:italic}
 .sec-sub{font-size:15px;color:var(--mid);line-height:1.8;max-width:760px;margin-bottom:40px}
 .sec-rule{height:1px;background:linear-gradient(90deg,var(--accent-bd),transparent);margin:20px 0 40px}
@@ -134,7 +134,7 @@ nav.s{padding:14px 60px;background:rgba(5,8,15,.96);backdrop-filter:blur(20px);-
 
 /* ══ JELLO SHOT ══ */
 .jello-tag{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#05080f;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:6px 16px;border-radius:100px;margin-bottom:20px}
-.shoptalk-img{border-radius:12px;overflow:hidden;border:1px solid var(--border);margin:24px 0}
+.shoptalk-img{border-radius:12px;overflow:hidden;border:1px solid var(--border);margin:24px 0;max-width:560px}
 .shoptalk-img img{width:100%;display:block}
 
 /* ══ STRAIGHT FROM THE SHAKER ══ */
@@ -167,15 +167,15 @@ nav.s{padding:14px 60px;background:rgba(5,8,15,.96);backdrop-filter:blur(20px);-
 .ii-link .ar{color:var(--accent);flex-shrink:0}
 
 /* ══ SECOND ROUND ══ */
-/* Logo display for events */
-.event-logo{margin-bottom:16px}
-.event-logo img{height:52px;width:auto;display:block;filter:brightness(0) invert(1);opacity:.85}
-.event-logo img.no-invert{filter:none;opacity:1;height:auto;max-height:60px;max-width:240px}
-.event-block{margin-bottom:40px;padding-bottom:40px;border-bottom:1px solid var(--border)}
-.event-block:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
-.event-block h3{font-family:'Playfair Display',serif;font-size:clamp(18px,2.2vw,26px);font-weight:700;color:var(--white);line-height:1.2;margin-bottom:8px}
-.event-block h3 em{color:var(--accent);font-style:italic}
-.event-meta{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:14px}
+.event-block{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:32px;margin-bottom:14px;transition:border-color .2s}
+.event-block:hover{border-color:var(--accent-bd)}
+.event-block-inner{display:grid;grid-template-columns:200px 1fr;gap:32px;align-items:start}
+.event-logo-col{background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:24px;display:flex;align-items:center;justify-content:center;min-height:100px}
+.event-logo-col img{max-width:140px;max-height:56px;width:auto;display:block;object-fit:contain}
+.event-logo-col img.wh{filter:brightness(0) invert(1);opacity:.85}
+.event-content h3{font-family:'Playfair Display',serif;font-size:clamp(17px,2vw,22px);font-weight:700;color:var(--white);line-height:1.25;margin-bottom:6px}
+.event-content h3 em{color:var(--accent);font-style:italic}
+.event-meta{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:12px}
 
 /* Speakeasy sponsors */
 .sponsor-strip{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0 16px}
@@ -214,6 +214,8 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 8
   .dive-layout{grid-template-columns:1fr}
   .payoff-box{position:static}
   .on-house-grid{grid-template-columns:1fr}
+  .event-block-inner{grid-template-columns:1fr}
+  .event-logo-col{min-height:auto;padding:20px}
   .finding-head{grid-template-columns:1fr}
   .fstat{border-right:none;border-bottom:1px solid var(--border)}
   .final,.footer{padding-left:32px;padding-right:32px}
@@ -564,71 +566,90 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 8
 
     <!-- Shoptalk Spring Technology Stage -->
     <div class="event-block fu">
-      <div class="event-logo">
-        <img src="shoptalk-hero.png" alt="Shoptalk Spring" class="no-invert" style="max-height:56px;max-width:200px;border-radius:6px" />
-      </div>
-      <h3>Shoptalk Spring Technology Stage: <em>Driving Costs Out of Fulfillment and Delivery</em></h3>
-      <span class="event-meta">March 25, 2026 &nbsp;·&nbsp; Mandalay Bay, Las Vegas &nbsp;·&nbsp; Technology Stage</span>
-      <p class="body-text">If you're in the supply chain space, don't miss <strong>Incisiv's Chief Insights Officer, Gaurav Pant</strong>, moderating a dynamic panel with next-gen companies, including <strong>Burq</strong>, <strong>Wing/Alphabet</strong>, and <strong>SuperCircle</strong>.</p>
-      <div class="brow" style="margin-top:16px">
-        <a href="https://spring.shoptalk.com/agendas/2026-agenda?day=WednesdayMarch25" target="_blank" class="btn bp">View Session &rarr;</a>
-        <a href="https://www.incisiv.com/shoptalk-spring-2026" target="_blank" class="btn bg">Our Chosen Agenda &rarr;</a>
+      <div class="event-block-inner">
+        <div class="event-logo-col">
+          <img src="shoptalkspring.png" alt="Shoptalk Spring" class="wh" />
+        </div>
+        <div class="event-content">
+          <h3>Shoptalk Spring Technology Stage: <em>Driving Costs Out of Fulfillment and Delivery</em></h3>
+          <span class="event-meta">March 25, 2026 &nbsp;·&nbsp; Mandalay Bay, Las Vegas &nbsp;·&nbsp; Technology Stage</span>
+          <p class="body-text">If you're in the supply chain space, don't miss <strong>Incisiv's Chief Insights Officer, Gaurav Pant</strong>, moderating a dynamic panel with next-gen companies, including <strong>Burq</strong>, <strong>Wing/Alphabet</strong>, and <strong>SuperCircle</strong>.</p>
+          <div class="brow" style="margin-top:16px">
+            <a href="https://spring.shoptalk.com/agendas/2026-agenda?day=WednesdayMarch25" target="_blank" class="btn bp">View Session &rarr;</a>
+            <a href="https://www.incisiv.com/shoptalk-spring-2026" target="_blank" class="btn bg">Our Chosen Agenda &rarr;</a>
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- Speakeasy -->
     <div class="event-block fu">
-      <div class="event-logo">
-        <img src="logo-speakeasy.png" alt="The Speakeasy @ Shoptalk 2026" class="no-invert" style="max-height:70px;max-width:260px" />
+      <div class="event-block-inner">
+        <div class="event-logo-col">
+          <img src="logo-speakeasy.png" alt="The Speakeasy @ Shoptalk 2026" />
+        </div>
+        <div class="event-content">
+          <h3>The Speakeasy <em>@ Shoptalk 2026</em></h3>
+          <span class="event-meta">March 2026 &nbsp;·&nbsp; Las Vegas &nbsp;·&nbsp; Pisces at the Venetian</span>
+          <p class="body-text">Shoptalk heads back to Vegas this Spring. After producing the last two <a href="https://www.incisiv.com/speakeasy-shoptalk-2026" target="_blank">Speakeasy @ Shoptalk</a> Dinners on site, we figured it was time to elevate the experience. This year, we'll be heading to Pisces at the Venetian — a private dining experience overlooking the lake. Thankful to our sponsors:</p>
+          <div class="sponsor-strip">
+            <span class="sp">Avanade</span>
+            <span class="sp">Four Kites</span>
+            <span class="sp">Microsoft</span>
+          </div>
+          <a href="https://www.incisiv.com/speakeasy-shoptalk-2026" target="_blank" class="btn bp">Learn More &rarr;</a>
+        </div>
       </div>
-      <span class="event-meta">March 2026 &nbsp;·&nbsp; Las Vegas &nbsp;·&nbsp; Pisces at the Venetian</span>
-      <p class="body-text">Shoptalk heads back to Vegas this Spring and back to Mandalay Bay. After producing the last two <a href="https://www.incisiv.com/speakeasy-shoptalk-2026" target="_blank">Speakeasy @ Shoptalk</a> Dinners on site, we figured it was time to get away from the same 3 restaurant options and again elevate the experience. This year, we'll be heading to Pisces at the Venetian — A private dining experience overlooking the lake. We're very excited and thankful to our sponsors for this year's event:</p>
-      <div class="sponsor-strip">
-        <span class="sp">Avanade</span>
-        <span class="sp">Four Kites</span>
-        <span class="sp">Microsoft</span>
-      </div>
-      <a href="https://www.incisiv.com/speakeasy-shoptalk-2026" target="_blank" class="btn bp">Learn More &rarr;</a>
     </div>
 
     <!-- World Retail Congress -->
     <div class="event-block fu">
-      <div class="event-logo">
-        <img src="logo-wrc.png" alt="World Retail Congress" class="no-invert" style="max-height:60px;max-width:220px" />
-      </div>
-      <span class="event-meta">April 2026 &nbsp;·&nbsp; Berlin</span>
-      <p class="body-text">Incisiv is heading to Berlin in partnership with the <a href="https://www.worldretailcongress.com/" target="_blank">World Retail Congress</a>. Incisiv and WRC have partnered to produce several studies, and next month, we will be releasing the <strong>Global Supply Chain Resilience Study</strong> (in conjunction with <strong>Anaplan</strong>) at the event and will be previewing our first annual Global Retail CxO outlook (in conjunction with <strong>Manhattan Associates</strong>). If you're looking to network with a CxO audience — you should definitely check out this event!!</p>
-      <div class="brow" style="margin-top:16px">
-        <a href="https://www.worldretailcongress.com/" target="_blank" class="btn bp">Learn More &rarr;</a>
+      <div class="event-block-inner">
+        <div class="event-logo-col">
+          <img src="logo-wrc.png" alt="World Retail Congress" />
+        </div>
+        <div class="event-content">
+          <h3>World Retail Congress — <em>Berlin</em></h3>
+          <span class="event-meta">April 2026 &nbsp;·&nbsp; Berlin</span>
+          <p class="body-text">Incisiv is heading to Berlin in partnership with the <a href="https://www.worldretailcongress.com/" target="_blank">World Retail Congress</a>. We will be releasing the <strong>Global Supply Chain Resilience Study</strong> (with <strong>Anaplan</strong>) and previewing our first annual Global Retail CxO Outlook (with <strong>Manhattan Associates</strong>). If you're looking to network with a CxO audience — check out this event!</p>
+          <div class="brow" style="margin-top:16px">
+            <a href="https://www.worldretailcongress.com/" target="_blank" class="btn bp">Learn More &rarr;</a>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- Incisiv Insights logo + NY Dinners -->
+    <!-- NY Dinners -->
     <div class="event-block fu">
-      <div class="ii-logo-row" style="margin-bottom:16px">
-        <img src="logo-incisiv-insights.png" alt="Incisiv Insights" style="height:48px;width:auto;filter:invert(1) brightness(10);opacity:.85" />
+      <div class="event-block-inner">
+        <div class="event-logo-col">
+          <img src="logo-incisiv-insights.png" alt="Incisiv Insights" class="wh" />
+        </div>
+        <div class="event-content">
+          <h3>New York Community <em>Dinner Series</em></h3>
+          <span class="event-meta">2026 &nbsp;·&nbsp; New York City</span>
+          <p class="body-text">In 2026, we will be producing four unique executive dinners designed to spark conversation and build community. Starting in May and each subsequent quarter, we'll select a critical industry theme as the discussion driver.</p>
+          <div class="dinner-list">
+            <div class="dinner-item">
+              <span class="dinner-tag tag-open">1 Spot Open</span>
+              <div><h4>The Rise of the Agents</h4><p>Where is Agentic AI going and which use cases will deliver the most value to your business?</p></div>
+            </div>
+            <div class="dinner-item">
+              <span class="dinner-tag tag-sold">Sold</span>
+              <div><h4>Bringing the sexy back to the store</h4><p>What is the right mix of art and science in the store environment, and how important are the people who run it?</p></div>
+            </div>
+            <div class="dinner-item">
+              <span class="dinner-tag tag-sold">Sold</span>
+              <div><h4>What does digital transformation even mean anymore?</h4><p>The state of the union in which digital technologies are continuing to impact e-commerce, supply chains, and stores.</p></div>
+            </div>
+            <div class="dinner-item">
+              <span class="dinner-tag tag-hold">On Hold</span>
+              <div><h4>Whose supply chain is it anyway?</h4><p>How can a healthy supply chain make an impact on margins and provide a better customer experience?</p></div>
+            </div>
+          </div>
+          <p class="body-text" style="margin-top:16px">We are offering the opportunity for one partner per event to join us. For more information, contact <a href="mailto:mara.dosso@incisiv.com">Mara Dosso at mara.dosso@incisiv.com</a></p>
+        </div>
       </div>
-      <h3>New York Community <em>Dinner Series</em></h3>
-      <p class="body-text" style="margin:12px 0">In 2026, we will be producing three unique executive dinners designed to spark conversation and build community. Starting in May and in each subsequent quarter, we'll select a critical industry theme and use that as the discussion driver.</p>
-      <div class="dinner-list">
-        <div class="dinner-item">
-          <span class="dinner-tag tag-open">1 Spot Open</span>
-          <div><h4>The Rise of the Agents</h4><p>Where is Agentic AI going and which use cases will deliver the most value to your business?</p></div>
-        </div>
-        <div class="dinner-item">
-          <span class="dinner-tag tag-sold">Sold</span>
-          <div><h4>Bringing the sexy back to the store</h4><p>What is the right mix of art and science in the store environment, and how important are the people who run it?</p></div>
-        </div>
-        <div class="dinner-item">
-          <span class="dinner-tag tag-sold">Sold</span>
-          <div><h4>What does digital transformation even mean anymore?</h4><p>The state of the union in which digital technologies are continuing to impact e-commerce, supply chains, and stores.</p></div>
-        </div>
-        <div class="dinner-item">
-          <span class="dinner-tag tag-hold">On Hold</span>
-          <div><h4>Whose supply chain is it anyway?</h4><p>Few functions have risen to more importance than Supply Chains. How can a healthy supply chain make an impact on margins and provide a better customer experience?</p></div>
-        </div>
-      </div>
-      <p class="body-text" style="margin-top:16px">We are offering the opportunity for one partner per event to join us. For more information, contact <a href="mailto:mara.dosso@incisiv.com">Mara Dosso at mara.dosso@incisiv.com</a></p>
     </div>
 
   </div>
