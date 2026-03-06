@@ -76,8 +76,12 @@ nav.s{padding:14px 60px;background:rgba(5,8,15,.96);backdrop-filter:blur(20px);-
 /* SECTION HEADING */
 .sec-eyebrow{font-size:9px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:10px;margin-bottom:14px;opacity:.8}
 .sec-eyebrow::before{content:'';display:inline-block;width:18px;height:1px;background:var(--accent)}
-.sec-heading{font-family:'Playfair Display',serif;font-size:clamp(40px,5.5vw,72px);font-weight:700;line-height:1;letter-spacing:-.02em;margin-bottom:8px}
-.sec-heading em{color:var(--accent);font-style:italic}
+/* Section name — BIG Playfair title */
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(56px,7.5vw,100px);font-weight:700;line-height:1;letter-spacing:-.03em;margin-bottom:14px;color:var(--hi,#eef4ff)}
+.sec-title em{color:var(--accent);font-style:italic}
+/* Sub-heading beneath section name — smaller descriptor */
+.sec-heading{font-size:clamp(15px,1.6vw,20px);font-weight:400;color:var(--mid);line-height:1.45;letter-spacing:.01em;margin-bottom:8px;font-family:'Inter',sans-serif}
+.sec-heading em{color:var(--accent-l);font-style:normal;font-weight:600}
 .sec-sub{font-size:15px;color:var(--mid);line-height:1.8;max-width:760px;margin-bottom:40px}
 .sec-rule{height:1px;background:linear-gradient(90deg,var(--accent-bd),transparent);margin:20px 0 40px}
 
@@ -283,8 +287,8 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 8
   <div class="wrap">
 
     <div class="fu">
-      <div class="sec-eyebrow">The Dirty Details</div>
-      <h2 class="sec-heading">Connected Retail Experience Study:<br/><em>The New Omnichannel Reality</em></h2>
+      <h2 class="sec-title">The Dirty Details</h2>
+      <p class="sec-heading">Connected Retail Experience Study: <em>The New Omnichannel Reality</em></p>
       <div class="sec-rule"></div>
     </div>
 
@@ -372,7 +376,8 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 8
 
     <!-- DIVE DEEPER — directly within Dirty Details section -->
     <div class="dive-deeper fu">
-      <div class="sec-eyebrow">Dive deeper into our cross-industry research and content.</div>
+      <h2 class="sec-title">Dive Deeper</h2>
+      <p class="sec-heading">Cross-industry research and content</p>
       <p class="body-text" style="margin-top:12px">This month, we released a new report — <a href="https://www.incisiv.com/unified-commerce-in-an-ai-world" target="_blank"><strong>Unified Commerce in an AI World: What Breaks When Intelligence Outpaces Infrastructure.</strong></a> The premise is blunt: the AI experimentation phase is over. AI agents in 2026 don't just chat — they reason across product catalogs, negotiate fulfillment options, and execute purchases. The question is whether you've built the infrastructure AI actually requires, or whether you're automating old inefficiencies at a new speed.</p>
       <p class="body-text">The data backs up the urgency. MIT reports that 95% of enterprise generative AI pilots fail to deliver demonstrable ROI. Our own research shows that while 38% of retailers say their transformation initiatives are in advanced stages, only 17% rate themselves as "Leading" in unified commerce maturity — and 84% of organizations are still making decisions with incomplete information.</p>
       <p class="body-text">The playbook builds its argument across five themes:</p>
@@ -441,8 +446,8 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 8
   <div class="wrap">
 
     <div class="fu">
-      <div class="sec-eyebrow">Jello Shot!!</div>
-      <h2 class="sec-heading">Shoptalk <em>Spring 2026</em></h2>
+      <h2 class="sec-title">Jello Shot!!</h2>
+      <p class="sec-heading">Shoptalk <em>Spring 2026</em></p>
       <div class="sec-rule"></div>
     </div>
 
@@ -467,8 +472,8 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 8
   <div class="wrap">
 
     <div class="fu">
-      <div class="sec-eyebrow">Straight from the Shaker</div>
-      <h2 class="sec-heading">Why <em>Partnerships</em> Break — and How to Fix Them</h2>
+      <h2 class="sec-title">Straight from the Shaker</h2>
+      <p class="sec-heading">Why <em>Partnerships</em> Break — and How to Fix Them</p>
       <div class="sec-rule"></div>
     </div>
 
@@ -511,8 +516,8 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 8
   <div class="wrap">
 
     <div class="fu">
-      <div class="sec-eyebrow">On the House</div>
-      <h2 class="sec-heading">Research, Insights &amp; <em>What's New</em></h2>
+      <h2 class="sec-title">On the House</h2>
+      <p class="sec-heading">Research, Insights &amp; <em>What's New</em></p>
       <div class="sec-rule"></div>
     </div>
 
@@ -557,8 +562,8 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 8
   <div class="wrap">
 
     <div class="fu">
-      <div class="sec-eyebrow">Second Round — Industry Happenings…</div>
-      <h2 class="sec-heading">Where We'll Be — <em>Q2 2026</em></h2>
+      <h2 class="sec-title">Second Round</h2>
+      <p class="sec-heading">Industry Happenings — <em>Where We'll Be in Q2 2026</em></p>
       <div class="sec-rule"></div>
     </div>
 
