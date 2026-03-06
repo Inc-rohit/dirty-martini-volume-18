@@ -310,7 +310,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:28px 6
   1. HERO
 ══════════════════════════════════════ -->
 <section class="hero">
-  <video class="hbg-video" id="herovid" autoplay muted loop playsinline webkit-playsinline disablePictureInPicture preload="auto" x-webkit-airplay="deny">
+  <video class="hbg-video" id="herovid" muted loop playsinline webkit-playsinline disablePictureInPicture x-webkit-airplay="deny">
     <source src="hero-video.mp4" type="video/mp4">
   </video>
   <img class="hbg" src="dirty martini bg.jpg" alt="" style="z-index:-1" />
@@ -851,21 +851,31 @@ window.addEventListener('scroll', () => {
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => nav.classList.toggle('s', window.scrollY > 50));
 
-// Force video autoplay — Safari compatible
-const herovid = document.getElementById('herovid');
-if (herovid) {
-  herovid.muted = true;
-  herovid.defaultMuted = true;
-  herovid.setAttribute('muted', '');
-  herovid.setAttribute('playsinline', '');
-  herovid.setAttribute('webkit-playsinline', '');
-  const tryPlay = () => herovid.play().catch(() => {});
-  tryPlay();
-  herovid.addEventListener('loadedmetadata', tryPlay);
-  herovid.addEventListener('canplay', tryPlay);
-  document.addEventListener('touchstart', tryPlay, { once: true });
-  document.addEventListener('click', tryPlay, { once: true });
-}
+// Safari-compatible background video autoplay
+(function(){
+  const v = document.getElementById('herovid');
+  if (!v) return;
+  v.muted = true;
+  v.defaultMuted = true;
+  v.setAttribute('muted','');
+  v.setAttribute('playsinline','');
+  v.setAttribute('webkit-playsinline','');
+  function play(){ v.play().catch(function(){}); }
+  // Try immediately
+  play();
+  // Try on every ready state change
+  v.addEventListener('loadedmetadata', play);
+  v.addEventListener('canplaythrough', play);
+  // IntersectionObserver triggers play when visible
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting) play(); });
+    }, { threshold: 0.1 }).observe(v);
+  }
+  // Fallback: load then play
+  v.load();
+  v.addEventListener('loadeddata', play);
+})();
 
 // Hero entrance
 gsap.timeline({ delay: 0.15 })
