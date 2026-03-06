@@ -71,6 +71,7 @@ nav.s{padding:14px 60px;background:rgba(7,7,7,.94);backdrop-filter:blur(20px);-w
 /* ══ 1. HERO ══ */
 .hero{position:relative;width:100%;min-height:100vh;display:flex;align-items:flex-end;overflow:hidden}
 .hbg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;transform:scale(1.08);will-change:transform}
+.hbg-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transform:scale(1.08);will-change:transform;z-index:0}
 .hveil{position:absolute;inset:0;background:linear-gradient(165deg,rgba(7,7,7,.08) 0%,rgba(7,7,7,.45) 42%,rgba(7,7,7,.98) 100%)}
 .hbody{position:relative;z-index:2;max-width:1100px;margin:0 auto;width:100%;padding:0 60px 96px}
 .hkick{display:inline-flex;align-items:center;gap:10px;font-size:10px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--pink-l);margin-bottom:24px;opacity:0;transform:translateY(14px)}
@@ -304,7 +305,10 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:28px 6
   1. HERO
 ══════════════════════════════════════ -->
 <section class="hero">
-  <img class="hbg" src="dirty martini bg.jpg" alt="" />
+  <video class="hbg-video" autoplay muted loop playsinline poster="dirty martini bg.jpg">
+    <source src="0_Cocktail_Drink_3840x2160.mp4" type="video/mp4">
+  </video>
+  <img class="hbg" src="dirty martini bg.jpg" alt="" style="z-index:-1" />
   <div class="hveil"></div>
   <div class="hbody">
     <div class="hkick">Volume 18 &nbsp;·&nbsp; March 2026 &nbsp;·&nbsp; Incisiv</div>
